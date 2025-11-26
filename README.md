@@ -59,6 +59,8 @@ You can connect CODLAI sensor modules to the two parallel ports and develop vari
   - ESPAsyncWebServer
   - Firebase Arduino Client Library for ESP8266 and ESP32
   - ArduinoJson
+- **Offline Libraries:**
+  - `other_libraries.zip`: Contains all required library dependencies for offline installation.
 
 # MINIBOT Kütüphanesi Kullanım Kılavuzu
 Bu kütüphane CODLAI geliştirici ekibi tarafından MINIBOT ürününü kontrol etmek için özel olarak tasarlanmış ve üretilmiştir.

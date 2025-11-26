@@ -1,6 +1,6 @@
 {
   "name": "CODLAI_MINIBOT",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Library for MINIBOT, an ESP8266-based programmable device. Visit www.codlai.com for more information.",
   "keywords": [
     "robotics",
@@ -28,10 +28,12 @@
       "examples/*",
       "MINIBOT.h",
       "README.md",
+      "COMMANDS_README.md",
       "keywords.txt",
       "library.properties",
       "LICENSE",
-      "CHANGELOG.md"
+      "CHANGELOG.md",
+      "other_libraries.zip"
     ]
   },
   "license": "MIT",
