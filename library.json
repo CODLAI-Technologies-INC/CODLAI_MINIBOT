@@ -1,0 +1,50 @@
+{
+  "name": "CODROB_MINIBOT",
+  "version": "1.0.0",
+  "description": "Library for MINIBOT, an ESP8266-based programmable device. Visit www.codlai.com for more information.",
+  "keywords": [
+    "robotics",
+    "car",
+    "servo",
+    "dcmotor",
+    "control",
+    "CODLAI",
+    "MINIBOT"
+  ],
+  "authors": [
+    {
+      "name": "Samed Kaya",
+      "email": "info@codlai.com",
+      "url": "https://codlai.com",
+      "maintainer": true
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CODLAI-Technologies-INC/CODROB_MINIBOT"
+  },
+  "export": {
+    "include": [
+      "examples/*",
+      "MINIBOT.h",
+      "README.md",
+      "keywords.txt",
+      "library.properties",
+      "LICENSE",
+      "CHANGELOG.md"
+    ]
+  },
+  "license": "MIT",
+  "frameworks": [
+    "arduino"
+  ],
+  "platforms": [
+    "espressif8266",
+    "espressif32"
+  ],
+  "examples": [
+    "examples/main/MINIBOT_basic_example"
+  ],
+  "homepage": "https://github.com/CODLAI-Technologies-INC/CODROB_MINIBOT",
+  "dependencies": {}
+}
