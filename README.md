@@ -42,6 +42,10 @@ You can connect CODLAI sensor modules to the two parallel ports and develop vari
 - Programmability with open-source editors
 - Documentation for IoT application development
 
+### Cloud Integrations
+- Send Telegram alerts with `sendTelegram()` when remote events occur.
+- Trigger IFTTT workflows using `triggerIFTTTEvent()`; start from `examples/main/2-Advanced/MINIBOT_IFTTT_Webhook_Example.ino` to log button presses to Google Sheets, Discord, etc.
+
 ### Security:
 - AES and SSL/TLS hardware accelerators
 
@@ -105,6 +109,10 @@ MiniBot, IoTBot ve diğer modüllerle birlikte kullanabilmek için üzerinde iki
 - Cihaz üzerinde bilgilendirme bölümleri
 - Açık kaynaklı editörler ile programlayabilme
 - IoT uygulamalar yapmak için gerekli dokümantasyon
+
+### Bulut Entegrasyonları:
+- `sendTelegram()` ile uzaktaki olayları Telegram üzerinden bildirebilirsiniz.
+- Yeni `triggerIFTTTEvent()` fonksiyonu sayesinde IFTTT akışlarını tetikleyebilirsiniz; `examples/main/2-Advanced/MINIBOT_IFTTT_Webhook_Example.ino` örneği Google Sheets/Discord gibi servislerle entegrasyonu gösterir.
 
 ### Güvenlik:
 - AES ve SSL/TLS için donanım hızlandırıcıları

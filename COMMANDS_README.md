@@ -57,3 +57,6 @@
 *   **ESP-NOW**: `initESPNow`, `setWiFiChannel`, `sendESPNow`, `registerOnRecv`, `startListening`.
 *   **Server / Sunucu**: `serverStart`, `serverCreateLocalPage`, `serverHandleDNS`, `serverContinue`.
 *   **Cloud / Bulut**: `fbServerSetandStartWithUser` (Firebase), `sendTelegram`, `sendEmail`, `getWeather`, `getWikipedia`.
+    *   `bool triggerIFTTTEvent(const String &eventName, const String &webhookKey, const String &jsonPayload = "{}")`
+        *   **EN:** Fires an IFTTT Webhook with optional JSON data and returns `true` when HTTP 200 is received.
+        *   **TR:** Opsiyonel JSON verisiyle IFTTT Webhook'unu tetikler, HTTP 200 döndüğünde `true` verir.
