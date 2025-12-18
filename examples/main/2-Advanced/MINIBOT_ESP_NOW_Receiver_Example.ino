@@ -3,7 +3,6 @@
  * Turkish: ESP-NOW Alıcı Örneği
  */
 #define USE_ESPNOW
-#define USE_WIFI
 #include "MINIBOT.h"
 
 MINIBOT minibot;

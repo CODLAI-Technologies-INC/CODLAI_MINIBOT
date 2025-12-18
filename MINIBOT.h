@@ -50,6 +50,12 @@
 #include <ArduinoJson.h>
 #endif
 
+#if defined(USE_WEATHER) || defined(USE_WIKIPEDIA) || defined(USE_TELEGRAM) || defined(USE_IFTTT)
+#ifndef USE_WIFI
+#define USE_WIFI
+#endif
+#endif
+
 #if defined(USE_WIFI)
 #include <ESP8266WiFi.h>
 #endif
@@ -66,9 +72,6 @@
 #endif
 
 #if defined(USE_WEATHER) || defined(USE_WIKIPEDIA) || defined(USE_TELEGRAM) || defined(USE_IFTTT)
-#ifndef USE_WIFI
-#define USE_WIFI
-#endif
 #include <ESP8266HTTPClient.h>
 #include <WiFiClientSecure.h>
 #endif
@@ -1429,14 +1432,18 @@ inline String MINIBOT::getWeather(String city, String apiKey)
   if (apiKey == "" || apiKey == "YOUR_API_KEY") {
       Serial.println("[Weather]: Using wttr.in (Free Service)...");
       
+      #if defined(ESP32) || defined(ARDUINO_ARCH_ESP32)
       client.setHandshakeTimeout(20000); 
+      #endif
 
       url = "https://wttr.in/" + city + "?format=%t+%C";
       
       Serial.println("[Weather]: Requesting URL: " + url);
       
       http.begin(client, url);
+      #if defined(ESP32) || defined(ARDUINO_ARCH_ESP32)
       http.setConnectTimeout(20000); 
+      #endif
       
       http.setUserAgent("curl/7.68.0"); 
 
@@ -1492,7 +1499,9 @@ inline String MINIBOT::getWikipedia(String query, String lang)
 
   WiFiClientSecure client;
   client.setInsecure(); 
+#if defined(ESP32) || defined(ARDUINO_ARCH_ESP32)
   client.setHandshakeTimeout(20000); 
+#endif
 
   HTTPClient http;
   String url = "https://" + lang + ".wikipedia.org/api/rest_v1/page/summary/" + query;
@@ -1500,7 +1509,9 @@ inline String MINIBOT::getWikipedia(String query, String lang)
   Serial.println("[Wikipedia]: Requesting URL: " + url);
   
   http.begin(client, url);
+#if defined(ESP32) || defined(ARDUINO_ARCH_ESP32)
   http.setConnectTimeout(20000); 
+#endif
   http.setUserAgent("curl/7.68.0"); 
 
   int httpCode = http.GET();

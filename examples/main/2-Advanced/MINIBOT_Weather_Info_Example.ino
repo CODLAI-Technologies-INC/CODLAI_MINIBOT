@@ -3,7 +3,6 @@
  * Turkish: Hava Durumu Bilgisi Örneği
  */
 #define USE_WEATHER
-#define USE_WIFI
 #include "MINIBOT.h"
 
 MINIBOT minibot;

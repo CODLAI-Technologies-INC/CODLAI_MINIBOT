@@ -2,9 +2,13 @@
 
 # CODLAI ERA (New Models)
 
-## [1.1.1] - 2025-03-09
+## [1.1.3] - 2025-12-18
+### Added
+- Refreshed the ESP-NOW, email, Telegram, weather and Wikipedia advanced examples with bilingual commentary so the new helpers and connection tips are easy to follow.
+
+## [1.1.2] - 2025-03-09
 ### Fixed
-- PlatformIO yeniden yayını için sürüm numarası artırıldı.
+- Guarded HTTP client handshake/connect timeout helpers so ESP8266 builds compile with the stock BearSSL/HTTPClient interfaces.
 
 ## [1.1.0] - 2025-03-09
 ### Added

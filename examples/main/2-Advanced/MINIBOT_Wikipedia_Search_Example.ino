@@ -3,7 +3,6 @@
  * Turkish: Wikipedia Arama Örneği
  */
 #define USE_WIKIPEDIA
-#define USE_WIFI
 #include "MINIBOT.h"
 
 MINIBOT minibot;
@@ -20,8 +19,8 @@ void setup() {
   minibot.wifiStartAndConnect(WIFI_SSID, WIFI_PASSWORD);
   
   if(minibot.wifiConnectionControl()) {
-      Serial.println("Searching for 'Arduino'...");
-      String summary = minibot.getWikipedia("Arduino", "en");
+      Serial.println("Searching for 'Robot'...");
+      String summary = minibot.getWikipedia("Robot", "en");
       Serial.println("Summary:");
       Serial.println(summary);
   }
