@@ -41,6 +41,9 @@ You can connect CODLAI sensor modules to the two parallel ports and develop vari
 - On-device information sections
 - Programmability with open-source editors
 - Documentation for IoT application development
+- Persistent storage helpers (EEPROM): int16/int32/float/string/bytes via `eeprom*` functions
+- CRC-protected EEPROM records (versioned): `eepromWriteRecord/eepromReadRecord`
+- NTP time sync helpers: `ntpSync/ntpGetDateTimeString` (requires WiFi)
 
 ### Cloud Integrations
 - Send Telegram alerts with `sendTelegram()` when remote events occur.
@@ -109,6 +112,9 @@ MiniBot, IoTBot ve diğer modüllerle birlikte kullanabilmek için üzerinde iki
 - Cihaz üzerinde bilgilendirme bölümleri
 - Açık kaynaklı editörler ile programlayabilme
 - IoT uygulamalar yapmak için gerekli dokümantasyon
+- Kalıcı hafıza yardımcıları (EEPROM): `eeprom*` fonksiyonları ile int16/int32/float/string/bytes
+- CRC korumalı (versiyonlu) EEPROM record: `eepromWriteRecord/eepromReadRecord`
+- NTP saat senkron yardımcıları: `ntpSync/ntpGetDateTimeString` (WiFi gerekir)
 
 ### Bulut Entegrasyonları:
 - `sendTelegram()` ile uzaktaki olayları Telegram üzerinden bildirebilirsiniz.
