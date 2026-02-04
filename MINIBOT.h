@@ -57,6 +57,13 @@
 #endif
 #endif
 
+#if defined(USE_OTA)
+#ifndef USE_WIFI
+#define USE_WIFI
+#endif
+#include <ArduinoOTA.h>
+#endif
+
 #if defined(USE_WIFI)
 #include <ESP8266WiFi.h>
 #endif
@@ -236,6 +243,15 @@ public:
   bool wifiConnectionControl();
   String wifiGetMACAddress();
   String wifiGetIPAddress();
+#endif
+
+  /*********************************** OTA (Over-The-Air) ***********************************
+   * TR: WiFi baglantisindan SONRA cagirilmalidir.
+   * EN: Must be called AFTER WiFi connection is established.
+   */
+#if defined(USE_OTA)
+  void otaBegin(const char *hostname = "CODLAI-MINIBOT", const char *password = "1234", uint16_t port = 3232);
+  void otaHandle();
 #endif
 
   /*********************************** NTP Time ***********************************
@@ -1584,6 +1600,67 @@ inline String MINIBOT::wifiGetMACAddress()
 inline String MINIBOT::wifiGetIPAddress()
 {
   return WiFi.localIP().toString();
+}
+#endif
+
+/*********************************** OTA (Over-The-Air) ***********************************/
+#if defined(USE_OTA)
+inline void MINIBOT::otaBegin(const char *hostname, const char *password, uint16_t port)
+{
+  static String otaHost;
+  if (hostname && strlen(hostname) > 0)
+  {
+    otaHost = hostname;
+  }
+  else
+  {
+    String mac = WiFi.macAddress();
+    mac.replace(":", "");
+    otaHost = String("MINIBOT-") + mac;
+  }
+  ArduinoOTA.setHostname(otaHost.c_str());
+
+  if (password && strlen(password) > 0)
+  {
+    ArduinoOTA.setPassword(password);
+  }
+  else
+  {
+    ArduinoOTA.setPassword("1234");
+  }
+  else
+  {
+    ArduinoOTA.setPassword("1234");
+  }
+
+  ArduinoOTA.setPort(port);
+
+  ArduinoOTA.onStart([]() {
+    Serial.println("[OTA]: Start");
+  });
+
+  ArduinoOTA.onEnd([]() {
+    Serial.println("\n[OTA]: End");
+  });
+
+  ArduinoOTA.onProgress([](unsigned int progress, unsigned int total) {
+    if (total > 0)
+    {
+      Serial.printf("[OTA]: Progress: %u%%\r", (progress * 100) / total);
+    }
+  });
+
+  ArduinoOTA.onError([](ota_error_t error) {
+    Serial.printf("[OTA]: Error[%u]\n", error);
+  });
+
+  ArduinoOTA.begin();
+  Serial.println("[OTA]: Ready");
+}
+
+inline void MINIBOT::otaHandle()
+{
+  ArduinoOTA.handle();
 }
 #endif
 
