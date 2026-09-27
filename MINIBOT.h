@@ -318,16 +318,19 @@ public:
   void startListening() {
       _instance = this;
       registerOnRecv([](uint8_t *mac, uint8_t *incomingData, uint8_t len) {
-          if (_instance) {
-            if (len == sizeof(CodlaiESPNowMessage)) {
-                memcpy(&_instance->receivedData, incomingData, sizeof(CodlaiESPNowMessage));
-                _instance->newData = true;
-            } else {
-                Serial.print("ESP-NOW Error: Received len ");
-                Serial.print(len);
-                Serial.print(" expected ");
-                Serial.println(sizeof(CodlaiESPNowMessage));
-            }
+          // Eski (daha kucuk) CodlaiESPNowMessage boyutundaki paketleri de
+          // kabul ediyoruz: once yapiyi sifirla, sonra sadece gelen kadar
+          // byte'i kopyala - eski surumle derlenmis bir gonderici, yeni
+          // surumle derlenmis bir aliciyla hala konusabilsin. / Also accept
+          // packets sized for an older (smaller) CodlaiESPNowMessage: zero
+          // the struct first, then copy only the bytes that actually
+          // arrived - so an old-version sender can still talk to a
+          // new-version receiver.
+          if (_instance && len > 0) {
+            memset(&_instance->receivedData, 0, sizeof(_instance->receivedData));
+            size_t copyLen = (size_t)len < sizeof(_instance->receivedData) ? (size_t)len : sizeof(_instance->receivedData);
+            memcpy(&_instance->receivedData, incomingData, copyLen);
+            _instance->newData = true;
           }
       });
   }
