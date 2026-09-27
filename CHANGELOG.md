@@ -4,6 +4,16 @@
 
 ## [Unreleased]
 
+## [1.5.0] - 2026-09-27
+### Added
+- **Basit ESP-NOW mesajlasma** (cocuklar/blok kod icin): `espNowBegin(channel=1)`, `espNowSendText(text)`, `espNowSendNumber(name, value)`, `espNowAvailable()`, `espNowReadText()`, `espNowReadName()`, `espNowReadNumber()`. `CodlaiESPNowMessage` yapisina `char text[32]` ve `float value` alanlari eklendi (Kol/Arac kontrolunu bozmadan) - ayni surumdeki tum CODLAI kartlari arasinda uyumlu.
+- **Melodi**: `buzzerPlayNote(note, durationMs)`, `buzzerPlayMelody(melodyId)` (1=Dogum Gunu, 2=Twinkle Twinkle, 3=Jingle Bells, 4=Baslangic Melodisi, 5=Daha Dun Annemizin [DOGRULANMAMIS, basitlestirilmis yer tutucu]), `buzzerSetTempo(bpm)`.
+- **NeoPixel**: `moduleSmartLEDFill(r,g,b)`, `moduleSmartLEDClear()`, `moduleSmartLEDSetBrightness(0-255)`, `moduleSmartLEDBlink(r,g,b,times,ms)`, `moduleSmartLEDBreathe(r,g,b,ms)`.
+- Yeni ornekler: `MINIBOT_ESPNOW_Simple_Messaging_Example.ino`, `MINIBOT_Buzzer_Melody_Example.ino`, `MINIBOT_NeoPixel_Effects_Example.ino`.
+
+### Fixed
+- Kok dizindeki `platformio.ini`'de `env:MINIBOT` icin `Adafruit NeoPixel` bagimliligi eksikti (sadece IOTBOT ortaminda tanimliydi) - `USE_NEOPIXEL` ile MINIBOT ortaminda derleme "Adafruit_NeoPixel.h: No such file or directory" hatasi veriyordu. lib_deps'e eklendi.
+
 ## [1.4.1] - 2026-09-27
 ### Fixed
 - `otaBegin()` icinde parola if/else zincirinden sonra fazladan bir `else { ArduinoOTA.setPassword("1234"); }` bloğu vardi - bu "else without a previous if" derleme hatasina yol acip `USE_OTA` tanimlayan HER sketch'in derlenmesini engelliyordu. Fazla blok kaldirildi. (Editor ajaninin derleme servisi testinde bulundu.)
