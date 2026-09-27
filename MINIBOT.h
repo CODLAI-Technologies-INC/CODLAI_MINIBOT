@@ -1645,10 +1645,6 @@ inline void MINIBOT::otaBegin(const char *hostname, const char *password, uint16
   {
     ArduinoOTA.setPassword("1234");
   }
-  else
-  {
-    ArduinoOTA.setPassword("1234");
-  }
 
   ArduinoOTA.setPort(port);
 
