@@ -4,6 +4,31 @@
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-09-27
+### Added
+- Yeni "3-Projects" ornek klasoru: kablosuz haberlesme gerektirmeyen, tek basina calisan, gercek hayattan basit proje ornekleri (onboard buzzer/LED + tek bir P-modulu kullanir).
+- `MINIBOT_Parking_Assistant_Example.ino` - ultrasonik mesafe sensoru + onboard buzzer (mesafeye gore hizlanan bip) + mavi LED, araba park sensoru mantigi.
+- `MINIBOT_PIR_Security_Alarm_Example.ino` - PIR hareket sensoru + onboard buzzer/LED alarmi + B1 butonuyla susturma.
+- `MINIBOT_Magnetic_Door_Alarm_Example.ino` - manyetik kapi/pencere sensoru, B1 ile kurma/etkisizlestirme (arm/disarm), acilinca buzzer/LED alarmi.
+- `MINIBOT_Vibration_Shock_Alarm_Example.ino` - titresim/darbe sensoru, B1 ile kurma/etkisizlestirme, darbe algilaninca kisa alarm patlamasi.
+
+- Yeni ornek: `MINIBOT_ESPNOW_Fan_Control_Reactive_Example.ino` - bir IOTBOT'un yayinladigi DHT sicaklik verisine gore role modulunu (vantilator) otomatik acar/kapatir ("kablosuz otomatik vantilator").
+
+### Fixed
+- `initESPNow()` icinde kosulsuz `WiFi.mode(WIFI_STA)` cagrisi, ayni sketch'te onceden acilmis bir AP'yi (ornegin bir web sunucusu/OTA icin `softAP()`) sessizce dusuruyordu. Artik mevcut mod AP ya da AP_STA ise `WIFI_AP_STA`'ya geciliyor, AP kapatilmiyor.
+
+## [1.3.0] - 2026-09-26
+### Added
+- `serverOnRequest(url, callback)`: `serverCreateLocalPage` SADECE sabit/statik bir HTML sayfasi render eder; bu yeni fonksiyon bir adrese istek geldiginde GERCEKTEN kod calistirmaniza (bir GPIO'yu tetiklemenize) izin verir.
+- Yeni ornek: `MINIBOT_IoTBot_ESPNOW_Pair_Example.ino` - router/WiFi agi olmadan (ESP-NOW ile) bir IOTBOT ile dogrudan, iki yonlu haberlesme; gercek donanimda (iki kart, canli MAC adresleriyle) dogrulandi.
+- Yeni baslangic seviyesi ornekler: `MINIBOT_WiFi_Simple_Status_Example.ino` (MAC/sunucu gerekmeyen en basit WiFi baglanma ornegi), `MINIBOT_ESPNOW_Broadcast_Simple_Example.ino` (MAC adresi bilmeden yayin/broadcast ile herhangi bir CODLAI kartina konusma) - egitim mufredati icin "once bunu dene" niteliginde.
+- Yeni ornek: `MINIBOT_ESPNOW_NightLight_Reactive_Example.ino` - bir IOTBOT'un yayinladigi isik sensoru verisine gore kendi LED'ini otomatik acar/kapatir ("kablosuz gece lambasi").
+- Yeni ornek: `MINIBOT_IoTBot_SmartLED_Remote_Example.ino` - B1 butonuyla uzaktaki bir IOTBOT'un akilli LED efektini degistirir.
+
+### Fixed
+- **ESP-NOW gonderme hatasi**: `initESPNow()` icinde `esp_now_set_self_role()` hic cagrilmiyordu; ESP8266'nin klasik `espnow.h` API'si bu olmadan `esp_now_send()`'i sessizce basarisiz kiliyordu ("Error sending the data" - gercek donanimda IoTBot ile ESP-NOW eslesme testi sirasinda tespit edildi). `ESP_NOW_ROLE_COMBO` ile duzeltildi.
+- `USE_ESPNOW` (ve tek basina digger bazi bayraklar) tanimlandiginda `WiFi.h`'in hic include edilmedigi bir sira sorunu duzeltildi (bkz. CODLAI_IOTBOT v1.5.0'daki ayni duzeltme).
+
 ## [1.2.0] - 2026-09-25
 ### Added
 - NTP time helpers: `ntpSync`, `ntpIsTimeValid`, `ntpGetEpoch`, `ntpGetDateTimeString`.
