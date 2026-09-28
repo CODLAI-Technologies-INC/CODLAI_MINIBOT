@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+## [1.5.2] - 2026-09-28
+### Fixed
+- `getWeather()`/`getWikipedia()`: `JsonDocument` yerine v6/v7 ile de calisan `DynamicJsonDocument` kullaniliyor; `containsKey()` (ArduinoJson v7'de kaldirildi) yerine `!doc["extract"].isNull()` kullaniliyor. Bkz. CODLAI_IOTBOT 1.7.2'deki ayni degisiklik.
+- `library.properties`'deki `depends=` alaninda "ESP Mail Client" EKSIKTI - `#include <ESP_Mail_Client.h>` (USE_EMAIL) gerektiren kod bu bagimlilik hic listelenmedigi icin otomatik kurulmayabiliyordu. Eklendi.
+- `library.json`: eksik bagimliliklar (NeoPixel, DHT, IRremoteESP8266, Firebase, ESP Mail Client) `dependencies` alanina eklendi.
+
 ## [1.5.1] - 2026-09-27
 ### Changed
 - ESP-NOW alicisi (`startListening()`) artik eski (kutuphanenin onceki surumlerinde daha kucuk olan) `CodlaiESPNowMessage` boyutundaki paketleri de kabul ediyor - bkz. CODLAI_IOTBOT 1.7.1'deki ayni degisiklik.
