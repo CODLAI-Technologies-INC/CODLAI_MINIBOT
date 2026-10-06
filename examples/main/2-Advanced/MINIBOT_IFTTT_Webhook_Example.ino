@@ -54,7 +54,7 @@ void setup() {
 }
 
 void loop() {
-  bool buttonPressed = minibot.button1Read();
+  bool buttonPressed = !minibot.button1Read(); // basiliyken LOW (false) / LOW (false) while pressed
   unsigned long now = millis();
 
   if (buttonPressed && (now - lastTrigger) > triggerInterval) {

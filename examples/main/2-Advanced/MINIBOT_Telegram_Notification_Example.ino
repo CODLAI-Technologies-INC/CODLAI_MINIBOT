@@ -25,7 +25,7 @@ void setup() {
 }
 
 void loop() {
-  if(minibot.button1Read()) { // Assuming button1 is available
+  if(!minibot.button1Read()) { // button1Read() basiliyken LOW (false) / LOW (false) while pressed
       Serial.println("Button Pressed! Sending Telegram message...");
       minibot.sendTelegram(BOT_TOKEN, CHAT_ID, "MINIBOT: Button Pressed!");
       delay(5000); // Debounce

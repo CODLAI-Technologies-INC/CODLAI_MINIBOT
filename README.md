@@ -9,7 +9,16 @@ This library is specially designed and produced by the CODLAI developer team to 
 1. Open the Arduino IDE.
 2. Go to "Sketch" -> "Include Library" -> "Manage Libraries..." from the menu bar.
 3. Type "MINIBOT" in the search box.
-4. Find the MINIBOT library and click the "Install" button to complete the installation.
+4. Find the MINIBOT library and click the "Install" button to complete the installation.
+
+## Using with PlatformIO
+
+```ini
+lib_deps = samed5497kaya/CODLAI_MINIBOT
+; Firebase / e-mail (USE_FIREBASE, USE_EMAIL) not used? Skip these two big
+; libraries: faster builds and no "path too long" (260 char) errors on Windows.
+lib_ignore = Firebase Arduino Client Library for ESP8266 and ESP32, ESP Mail Client
+```
 
 ## About MiniBot
 
@@ -81,7 +90,17 @@ Bu kütüphane CODLAI geliştirici ekibi tarafından MINIBOT ürününü kontrol
 1. Arduino IDE'yi açın.
 2. Menü çubuğundan "Sketch" -> "Include Library" -> "Manage Libraries..." seçeneğine gidin.
 3. Arama kutusuna "MINIBOT" yazın.
-4. MINIBOT kütüphanesini bulun ve "Install" düğmesine tıklayarak kurulumu tamamlayın.
+4. MINIBOT kütüphanesini bulun ve "Install" düğmesine tıklayarak kurulumu tamamlayın.
+
+## PlatformIO ile Kullanım
+
+```ini
+lib_deps = samed5497kaya/CODLAI_MINIBOT
+; Firebase / e-posta (USE_FIREBASE, USE_EMAIL) kullanmiyorsaniz bu iki buyuk
+; kutuphaneyi atlayin: derleme hizlanir, Windows'ta "yol cok uzun" (260
+; karakter) hatasi olmaz.
+lib_ignore = Firebase Arduino Client Library for ESP8266 and ESP32, ESP Mail Client
+```
 
 ## MiniBot Hakkında
 

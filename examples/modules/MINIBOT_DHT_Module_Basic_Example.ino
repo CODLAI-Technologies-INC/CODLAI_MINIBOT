@@ -34,7 +34,7 @@ void setup()
 
 void loop()
 {
-    int temperature = minibot.moduleDhtTempRead(SENSOR_PIN);
+    int temperature = minibot.moduleDhtTempReadC(SENSOR_PIN);
     // Sicaklik degeri okunuyor (°C) / Read temperature value (°C)
 
     int humidity = minibot.moduleDhtHumRead(SENSOR_PIN);

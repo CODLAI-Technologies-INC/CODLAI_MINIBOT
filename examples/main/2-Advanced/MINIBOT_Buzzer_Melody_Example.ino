@@ -9,9 +9,11 @@
 // Birthday, Twinkle Twinkle, Jingle Bells, Startup Jingle, Daha Dun
 // Annemizin), 3) changing the tempo (BPM).
 //
-// NOT / NOTE: Melodi 5 ("Daha Dun Annemizin") notalari DOGRULANMAMIS,
-// basitlestirilmis bir yer tutucudur. / Melody 5 ("Daha Dun Annemizin")
-// notes are an UNVERIFIED, simplified placeholder.
+// NOT / NOTE: Melodi 5 ("Daha Dun Annemizin") sarkinin tam halidir (kita +
+// nakarat); ezgisi "Ah! Vous dirai-je, Maman" oldugu icin ilk iki satiri
+// Melodi 2 (Twinkle Twinkle) ile aynidir. / Melody 5 ("Daha Dun Annemizin")
+// is the full song (verse + chorus); it uses the "Ah! Vous dirai-je,
+// Maman" tune, so its first two lines match Melody 2 (Twinkle Twinkle).
 
 #include <MINIBOT.h>
 
