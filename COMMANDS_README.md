@@ -11,8 +11,8 @@
     *   **EN:** Performs startup by blinking the LED.
     *   **TR:** LED'i yakıp söndürerek açılış yapar.
 *   `bool button1Read()`
-    *   **EN:** Reads the onboard button.
-    *   **TR:** Üzerindeki butonu okur.
+    *   **EN:** Reads the onboard button (B1, GPIO0). Returns the raw level: `true` = RELEASED, `false` = PRESSED - use `!minibot.button1Read()` for "pressed".
+    *   **TR:** Üzerindeki butonu (B1, GPIO0) okur. Ham seviyeyi döndürür: `true` = BIRAKILMIŞ, `false` = BASILI - "basılı mı" için `!minibot.button1Read()` kullanın.
 *   `void ledWrite(bool status)`
     *   **EN:** Controls the blue LED.
     *   **TR:** Mavi LED'i kontrol eder.
@@ -22,15 +22,23 @@
 
 ### Sensors and Actuators / Sensörler ve Eyleyiciler
 *   **Servo**: `void moduleServoGoAngle(int pin, int angle, int acceleration)`
+    *   **EN:** The first call for a pin goes straight to the target angle (the real start angle is unknown); later calls with `acceleration > 0` move one degree per `acceleration` ms.
+    *   **TR:** Bir pin için ilk çağrı doğrudan hedef açıya gider (gerçek başlangıç açısı bilinmez); sonraki çağrılar `acceleration > 0` ise her derecede `acceleration` ms bekleyerek ilerler.
 *   **DHT**: `moduleDhtTempReadC`, `moduleDhtTempReadF`, `moduleDhtHumRead`, `moduleDthFeelingTempC/F`
+    *   **EN:** Calling with a different pin re-creates the sensor on that pin (the first pin used to be kept forever).
+    *   **TR:** Farklı bir pinle çağrılınca sensör o pinde yeniden kurulur (eskiden ilk pin sonsuza kadar kullanılıyordu).
 *   **Distance / Mesafe**: `int moduleUltrasonicDistanceRead()`
 *   **Motion / Hareket**: `bool moduleMotionRead(int pin)`
 *   **Magnetic / Manyetik**: `bool moduleMagneticRead(int pin)`
 *   **Vibration / Titreşim**: `bool moduleVibrationDigitalRead(int pin)`
 *   **IR Receiver / IR Alıcı**: `moduleIRReadHex`, `moduleIRReadDecimalx32`, `moduleIRReadDecimalx8`
+    *   **EN:** `moduleIRReadDecimalx8` returns the last 8 bits (0 = no signal), so a key whose last byte is 0 also reads 0 - use the Hex/x32 versions for such keys. The NEC repeat code reads as 255.
+    *   **TR:** `moduleIRReadDecimalx8` son 8 biti döndürür (0 = sinyal yok); son baytı 0 olan bir tuş da 0 okunur - böyle tuşlar için Hex/x32 sürümlerini kullanın. NEC tekrar kodu 255 okunur.
 *   **Relay / Röle**: `void moduleRelayWrite(int pin, bool status)`
 *   **Traffic Light / Trafik Işığı**: `moduleTraficLightWrite`, `moduleTraficLightWriteRed/Yellow/Green`
 *   **Smart LED / Akıllı LED**: `moduleSmartLEDPrepare`, `moduleSmartLEDWrite`, `extendSmartLEDPrepare`, `extendSmartLEDFill`, and all effect functions (`Rainbow`, `TheaterChase`, `ColorWipe`).
+    *   **EN:** Calling a `...Prepare` function again frees the old strip (no memory leak). `getColor()` works even before `Prepare`. `moduleSmartLEDBreathe(r, g, b, ms)` fades the color in and out by scaling it (your `moduleSmartLEDSetBrightness` value is kept) and leaves the LEDs off at the end; it used to leave them dark/stuck by abusing `setBrightness`.
+    *   **TR:** Bir `...Prepare` fonksiyonu tekrar çağrılınca eski şerit silinir (bellek sızıntısı yok). `getColor()` `Prepare`'den önce de çalışır. `moduleSmartLEDBreathe(r, g, b, ms)` rengi ölçekleyerek yavaşça yakıp söndürür (`moduleSmartLEDSetBrightness` ayarınız korunur) ve sonunda LED'leri kapalı bırakır; eskiden `setBrightness` yüzünden LED'ler karanlık kalıyordu.
 
 ### General Pin & EEPROM / Genel Pin ve EEPROM
 *   **EEPROM address map / EEPROM adres haritası** (kütüphanenin kendisi sabit adres kullanmaz / the library itself uses no fixed address):
@@ -46,8 +54,8 @@
     *   **EN:** EEPROM write.
     *   **TR:** EEPROM yazma.
 *   `int eepromReadInt(int address)`
-    *   **EN:** EEPROM read.
-    *   **TR:** EEPROM okuma.
+    *   **EN:** EEPROM read (16-bit, range -32768..32767; negative values now read back correctly).
+    *   **TR:** EEPROM okuma (16-bit, aralık -32768..32767; negatif sayılar artık doğru okunur).
 *   `bool eepromBegin(size_t size = 512)`
     *   **EN:** Initializes EEPROM. Required for `EEPROM.commit()` on ESP8266.
     *   **TR:** EEPROM'u başlatır. ESP8266 üzerinde `EEPROM.commit()` için gereklidir.
@@ -70,8 +78,8 @@
     *   **EN:** Reads/writes float.
     *   **TR:** Float okur/yazar.
 *   `bool eepromWriteString(int address, const String &value, uint16_t maxLen = 128)` / `String eepromReadString(int address, uint16_t maxLen = 128)`
-    *   **EN:** Stores string as `[uint16 length][bytes...]`.
-    *   **TR:** String'i `[uint16 uzunluk][baytlar...]` formatında saklar.
+    *   **EN:** Stores string as `[uint16 length][bytes...]`. Reading a never-written (erased) area returns `""`.
+    *   **TR:** String'i `[uint16 uzunluk][baytlar...]` formatında saklar. Hiç yazılmamış (silinmiş) alan okununca `""` döner.
 *   `bool eepromWriteBytes(int address, const uint8_t *data, size_t len)` / `bool eepromReadBytes(int address, uint8_t *data, size_t len)`
     *   **EN:** Reads/writes raw bytes.
     *   **TR:** Ham bayt verisi okur/yazar.
@@ -96,11 +104,24 @@
     *   **EN:** Write to serial port.
     *   **TR:** Seri port yazma.
 *   **WiFi**: `wifiStartAndConnect`, `wifiConnectionControl`, `wifiGetIPAddress`, `wifiGetMACAddress`.
+    *   **EN:** `wifiStartAndConnect` prints the password masked (`****`). `wifiConnectionControl()` returns the state and prints to Serial only when it changes (safe to call in `loop()`).
+    *   **TR:** `wifiStartAndConnect` şifreyi gizli (`****`) yazar. `wifiConnectionControl()` durumu döndürür, seri porta sadece durum değişince yazar (`loop()` içinde güvenle çağrılabilir).
+*   `String urlEncode(const String &text)`
+    *   **EN:** UTF-8 percent-encoding for web addresses (space, `&`, `?`, Turkish letters -> `%XX`). `sendTelegram`, `getWeather` and `getWikipedia` already do this - pass them plain text.
+    *   **TR:** Web adresleri için UTF-8 yüzde kodlama (boşluk, `&`, `?`, Türkçe harfler -> `%XX`). `sendTelegram`, `getWeather` ve `getWikipedia` bunu zaten kendileri yapar - onlara düz metin verin.
 *   **OTA (Over-The-Air)**: `otaBegin`, `otaHandle` (call after WiFi, keep `otaHandle()` in `loop()`).
+    *   **EN:** Default port is `8266` (ESP8266 standard, used by Arduino IDE / PlatformIO espota); it used to be `3232` (the ESP32 port).
+    *   **TR:** Varsayılan port `8266` (ESP8266 standardı, Arduino IDE / PlatformIO espota bunu kullanır); eskiden `3232` (ESP32 portu) idi.
 *   **NTP Time / Saat Senkron**: `ntpBegin` (recommended), `ntpSync` (advanced), `ntpIsTimeValid`, `ntpGetEpoch`, `ntpGetDateTimeString`. Blok dostu / block-friendly: `ntpUpdate`, `ntpGetHour/Minute/Second/Day/Month/Year/Weekday` (-1 = saat yok / no time; 1=Pazartesi/Monday), `ntpGetTimeString`, `ntpGetDateString`, `ntpTimeIs(saat, dakika)` (o dakika boyunca / during that minute), `ntpTimeReached(saat, dakika)` (bir kez / once), `ntpTimeIsBetween(s1, d1, s2, d2)` (gece yarisini asabilir / may cross midnight) - ayrinti icin CODLAI_IOTBOT COMMANDS_README / details in CODLAI_IOTBOT COMMANDS_README.
 *   **ESP-NOW**: `initESPNow`, `setWiFiChannel`, `sendESPNow`, `registerOnRecv`, `startListening`.
-*   **Server / Sunucu**: `serverStart`, `serverCreateLocalPage`, `serverHandleDNS`, `serverContinue`.
+    *   **EN:** `CodlaiESPNowMessage.deviceType` map: `1` ARMBOT command, `2` CARBOT command, `3` CARBOT telemetry, `4` ARMBOT signal, `10` IOTBOT LDR broadcast, `11` IOTBOT temperature broadcast, `20` simple text, `21` simple number, `22-29` reserved for editor.codlai.com private/pairing blocks, `30-39` reserved for the CODLAI Robots Otonom project, `40-49` library example board IDs (`40` IOTBOT, `41` MINIBOT, `42` ROLEBOT) used by the Broadcast_Simple / Pair / SmartLED_Remote examples.
+    *   **TR:** `CodlaiESPNowMessage.deviceType` haritası: `1` ARMBOT komutu, `2` CARBOT komutu, `3` CARBOT telemetrisi, `4` ARMBOT sinyali, `10` IOTBOT LDR yayını, `11` IOTBOT sıcaklık yayını, `20` basit metin, `21` basit sayı, `22-29` editor.codlai.com özel/eşleşmeli bloklarına ayrılmış, `30-39` CODLAI Robotları Otonom projesine ayrılmış, `40-49` kütüphane örnek kartı kimlikleri (`40` IOTBOT, `41` MINIBOT, `42` ROLEBOT; Broadcast_Simple / Pair / SmartLED_Remote örnekleri).
+*   **Server / Sunucu**: `serverStart`, `serverCreateLocalPage`, `serverOnRequest`, `serverHandleDNS`, `serverContinue`.
+    *   **EN:** `serverStart("STA", ssid, pass)` falls back to its own AP named `CODLAI-MINIBOT` if it can't join (password = the given one, or `12345678` if shorter than 8 characters); `serverStart("AP", ...)` also replaces a 1-7 character password with `12345678` (softAP rejects it). Name, password and address are printed to Serial. Calling `serverStart` twice no longer registers the pages twice. `serverCreateLocalPage("/")` (or `""`) becomes the home page and replaces the default "CODLAI Server is Running!" page; `"demopage"` and `"/demopage"` are the same. `serverContinue()` keeps DNS redirection running in both AP and AP+STA modes.
+    *   **TR:** `serverStart("STA", ssid, sifre)` ağa bağlanamazsa `CODLAI-MINIBOT` adlı kendi ağını (AP) kurar (şifre = verilen şifre, 8 karakterden kısaysa `12345678`); `serverStart("AP", ...)` de 1-7 karakterlik şifreyi `12345678` yapar (softAP onu reddeder). Ağ adı, şifre ve adres seri porta yazılır. `serverStart` iki kez çağrılınca sayfalar artık iki kez eklenmez. `serverCreateLocalPage("/")` (veya `""`) ana sayfa olur ve varsayılan "CODLAI Server is Running!" sayfasının yerini alır; `"demopage"` ile `"/demopage"` aynıdır. `serverContinue()` DNS yönlendirmesini hem AP hem AP+STA modunda sürdürür.
 *   **Cloud / Bulut**: `fbServerSetandStartWithUser` (Firebase), `sendTelegram`, `sendEmail`, `getWeather`, `getWikipedia`.
+    *   **EN:** `sendTelegram`, `getWeather` (city) and `getWikipedia` (title; spaces become `_`) encode their text themselves with full UTF-8 percent-encoding - pass plain text such as `"İzmir"` or `"Sıcaklık %45 & nem"`; do not pre-encode it. `getWeather` with an OpenWeatherMap key now uses `https://` (the old `http://` URL always failed with the TLS client).
+    *   **TR:** `sendTelegram`, `getWeather` (şehir) ve `getWikipedia` (başlık; boşluklar `_` olur) metni kendileri tam UTF-8 yüzde kodlamasıyla kodlar - `"İzmir"` ya da `"Sıcaklık %45 & nem"` gibi düz metin verin, önceden kodlamayın. `getWeather` OpenWeatherMap anahtarıyla artık `https://` kullanır (eski `http://` adresi TLS istemcisiyle hep başarısız oluyordu).
     *   `bool triggerIFTTTEvent(const String &eventName, const String &webhookKey, const String &jsonPayload = "{}")`
         *   **EN:** Fires an IFTTT Webhook with optional JSON data and returns `true` when HTTP 200 is received.
         *   **TR:** Opsiyonel JSON verisiyle IFTTT Webhook'unu tetikler, HTTP 200 döndüğünde `true` verir.

@@ -9,7 +9,7 @@ This library is specially designed and produced by the CODLAI developer team to 
 1. Open the Arduino IDE.
 2. Go to "Sketch" -> "Include Library" -> "Manage Libraries..." from the menu bar.
 3. Type "MINIBOT" in the search box.
-4. Find the MINIBOT library and click the "Install" button to complete the installation.
+4. Find the MINIBOT library and click the "Install" button to complete the installation.
 
 ## Using with PlatformIO
 
@@ -57,7 +57,7 @@ You can connect CODLAI sensor modules to the two parallel ports and develop vari
 
 ### Cloud Integrations
 - Send Telegram alerts with `sendTelegram()` when remote events occur.
-- Trigger IFTTT workflows using `triggerIFTTTEvent()`; start from `examples/main/2-Advanced/MINIBOT_IFTTT_Webhook_Example.ino` to log button presses to Google Sheets, Discord, etc.
+- Trigger IFTTT workflows using `triggerIFTTTEvent()`; start from `examples/main/2-Advanced/MINIBOT_IFTTT_Webhook_Example/MINIBOT_IFTTT_Webhook_Example.ino` to log button presses to Google Sheets, Discord, etc.
 
 ### Security:
 - AES and SSL/TLS hardware accelerators
@@ -90,7 +90,7 @@ Bu kütüphane CODLAI geliştirici ekibi tarafından MINIBOT ürününü kontrol
 1. Arduino IDE'yi açın.
 2. Menü çubuğundan "Sketch" -> "Include Library" -> "Manage Libraries..." seçeneğine gidin.
 3. Arama kutusuna "MINIBOT" yazın.
-4. MINIBOT kütüphanesini bulun ve "Install" düğmesine tıklayarak kurulumu tamamlayın.
+4. MINIBOT kütüphanesini bulun ve "Install" düğmesine tıklayarak kurulumu tamamlayın.
 
 ## PlatformIO ile Kullanım
 
@@ -139,13 +139,33 @@ MiniBot, IoTBot ve diğer modüllerle birlikte kullanabilmek için üzerinde iki
 
 ### Bulut Entegrasyonları:
 - `sendTelegram()` ile uzaktaki olayları Telegram üzerinden bildirebilirsiniz.
-- Yeni `triggerIFTTTEvent()` fonksiyonu sayesinde IFTTT akışlarını tetikleyebilirsiniz; `examples/main/2-Advanced/MINIBOT_IFTTT_Webhook_Example.ino` örneği Google Sheets/Discord gibi servislerle entegrasyonu gösterir.
+- Yeni `triggerIFTTTEvent()` fonksiyonu sayesinde IFTTT akışlarını tetikleyebilirsiniz; `examples/main/2-Advanced/MINIBOT_IFTTT_Webhook_Example/MINIBOT_IFTTT_Webhook_Example.ino` örneği Google Sheets/Discord gibi servislerle entegrasyonu gösterir.
 
 ### Güvenlik:
 - AES ve SSL/TLS için donanım hızlandırıcıları
 
 ### Sertifikalar:
 - CE, ROSH, EMC
+
+<!-- EXAMPLES:START -->
+# Examples / Örnekler
+
+**EN:** 46 examples - Basic (1), Modules (12), Advanced (25), Projects (8). Every example follows the same rules:
+- **Turkish / English:** `bool turkish = true;` at the top picks the language. Type `lang` (or `dil`) in the Serial Monitor to switch while it runs. Serial, LCD and web texts follow it.
+- **Serial port (115200 baud):** commands work in both languages (`help` = `yardim`, `angle 90` = `aci 90` = `açı 90`) and with any line-ending setting. Type `help` for the list.
+- **Auto / manual:** 13 examples that drive something (motor, servo, relay, LED, buzzer, robot) start in **AUTO** mode with a demo. Press the **B1** button (GPIO0) to switch to **MANUAL**. MINIBOT has no other input, so manual control is done with serial commands. An actuator command sent from serial also switches to manual.
+- 11 examples need your own settings (WiFi, tokens, keys): fill in the `YOUR_...` placeholders.
+- Each example is in its own folder (`Folder/Folder.ino`), so it shows up under *File > Examples* in the Arduino IDE.
+- `examples/examples.json` lists every example with its board, required modules, summary (TR/EN) and serial commands (used by editor.codlai.com).
+
+**TR:** 46 örnek - Temel (1), Modüller (12), İleri (25), Projeler (8). Tüm örnekler aynı kurallara uyar:
+- **Türkçe / İngilizce:** En üstteki `bool turkish = true;` dili seçer. Çalışırken Seri Monitör'e `dil` (veya `lang`) yazarak değiştirebilirsiniz. Seri port, LCD ve web metinleri seçilen dili izler.
+- **Seri port (115200 baud):** komutlar iki dilde de çalışır (`yardim` = `help`, `aci 90` = `açı 90` = `angle 90`) ve satır sonu ayarı ne olursa olsun algılanır. Komut listesi için `yardim` yazın.
+- **Otomatik / manuel:** Bir şey süren 13 örnek (motor, servo, röle, LED, buzzer, robot) **OTOMATİK** modda bir gösteriyle başlar. **B1** butonu (GPIO0) ile **MANUEL** moda geçersiniz. MINIBOT'ta başka giriş olmadığı için manuel kontrol seri komutlarla yapılır. Seri porttan gönderilen bir çalıştırma komutu da manuel moda geçirir.
+- 11 örnek sizin ayarlarınızı ister (WiFi, token, anahtar): `YOUR_...` yer tutucularını doldurun.
+- Her örnek kendi klasöründedir (`Klasör/Klasör.ino`); Arduino IDE'de *Dosya > Örnekler* menüsünde görünür.
+- `examples/examples.json` her örneği kartı, gerektirdiği modüller, özeti (TR/EN) ve seri komutlarıyla listeler (editor.codlai.com kullanır).
+<!-- EXAMPLES:END -->
 
 # Library Structure & Contributing / Kütüphane Yapısı ve Katkıda Bulunma
 This library follows a modular design pattern to ensure efficiency.

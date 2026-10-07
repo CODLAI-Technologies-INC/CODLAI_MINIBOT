@@ -1,6 +1,6 @@
 {
   "name": "CODLAI_MINIBOT",
-  "version": "1.5.3",
+  "version": "1.6.0",
   "description": "Library for MINIBOT, an ESP8266-based programmable device. Visit www.codlai.com for more information.",
   "keywords": [
     "robotics",
@@ -46,7 +46,8 @@
     "espressif32"
   ],
   "examples": [
-    "examples/main/MINIBOT_basic_example"
+    "examples/main/*/*/*.ino",
+    "examples/modules/*/*.ino"
   ],
   "homepage": "https://github.com/CODLAI-Technologies-INC/CODLAI_MINIBOT",
   "dependencies": {

@@ -1,0 +1,3235 @@
+{
+  "schema": 1,
+  "library": "CODLAI_MINIBOT",
+  "description": {
+    "tr": "Örnek dizini: her örneğin yolu, kartı, gereken modüller/ayarlar, özeti ve seri komutları. Kod başlıklarından otomatik üretilir.",
+    "en": "Example index: path, board, required modules/settings, summary and serial commands of each sketch. Generated from the sketch headers."
+  },
+  "examples": [
+    {
+      "name": "MINIBOT_basic_example",
+      "path": "main/1-Basic/MINIBOT_basic_example/MINIBOT_basic_example.ino",
+      "category": "Basic",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "MINIBOT TEMEL ÖRNEK - Buton, LED ve buzzer",
+        "en": "MINIBOT BASIC EXAMPLE - Button, LED and buzzer"
+      },
+      "summary": {
+        "tr": "Kart üzerindeki B1 butonuna basılı tuttuğunuz sürece mavi LED yanar, bırakınca söner. Her basışta kısa bir bip duyulur ve seri porta \"Butona basıldı\" yazılır (mesaj sadece durum DEĞİŞİNCE yazılır). B1 butonu (GPIO0) basılıyken LOW okunur: button1Read() == false -> basılı.",
+        "en": "While you hold the onboard B1 button the blue LED is on; it turns off when you release it. Each press beeps briefly and prints \"Button pressed\" (messages are printed only when the state CHANGES). B1 (GPIO0) reads LOW while pressed: button1Read() == false -> pressed."
+      },
+      "wiring": "Ek modül GEREKMEZ. / NO extra module needed.",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "ac",
+          "en": "on",
+          "description": {
+            "tr": "mavi LED'i yak (butona basılınca yine butonu izler)",
+            "en": "blue LED on (follows the button again on the next press)"
+          }
+        },
+        {
+          "tr": "kapat",
+          "en": "off",
+          "description": {
+            "tr": "mavi LED'i söndür",
+            "en": "blue LED off"
+          }
+        },
+        {
+          "tr": "bip",
+          "en": "beep",
+          "description": {
+            "tr": "buzzer'dan kısa bir ses",
+            "en": "a short sound from the buzzer"
+          }
+        },
+        {
+          "tr": "durum",
+          "en": "status",
+          "description": {
+            "tr": "buton durumu ve kaç kez basıldığı",
+            "en": "button state and how many times it was pressed"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_AP_Mode_Local_Server_Basic_Example",
+      "path": "main/2-Advanced/MINIBOT_AP_Mode_Local_Server_Basic_Example/MINIBOT_AP_Mode_Local_Server_Basic_Example.ino",
+      "category": "Advanced",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "server"
+      ],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "ERİŞİM NOKTASI (AP) MODUNDA YEREL WEB SUNUCU",
+        "en": "LOCAL WEB SERVER IN ACCESS POINT (AP) MODE"
+      },
+      "summary": {
+        "tr": "MINIBOT kendi WiFi ağını kurar (\"CODLAI Server\", şifre \"12345678\"). Telefonunuzu ya da bilgisayarınızı bu ağa bağlayıp tarayıcıda http://192.168.4.1/demopage adresini açın: MINIBOT'un sunduğu web sayfasını görürsünüz. Router/İnternet GEREKMEZ. Sayfa HTML (içerik), CSS (görünüm) ve JavaScript (davranış) parçalarından oluşur. Bir cihaz ağa bağlanınca / ayrılınca seri porta yazılır.",
+        "en": "MINIBOT creates its own WiFi network (\"CODLAI Server\", password \"12345678\"). Connect your phone or computer to it and open http://192.168.4.1/demopage in a browser: you see the web page served by MINIBOT. NO router/Internet needed. The page is built from HTML (content), CSS (look) and JavaScript (behavior) parts. When a device joins / leaves the network it is printed to Serial."
+      },
+      "wiring": "NOT / NOTE: \"#define USE_SERVER\" satırı #include'dan ÖNCE yazılmalıdır. The \"#define USE_SERVER\" line must come BEFORE the #include.",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "durum",
+          "en": "status",
+          "description": {
+            "tr": "ağ adı, IP adresi ve bağlı cihaz sayısı",
+            "en": "network name, IP address and number of connected devices"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_Buzzer_Melody_Example",
+      "path": "main/2-Advanced/MINIBOT_Buzzer_Melody_Example/MINIBOT_Buzzer_Melody_Example.ino",
+      "category": "Advanced",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": true,
+      "title": {
+        "tr": "MÜZİK / MELODİ ÖZELLİKLERİ - Otomatik demo + Manuel kontrol",
+        "en": "MUSIC / MELODY FEATURES - Automatic demo + Manual control"
+      },
+      "summary": {
+        "tr": "Açılışta OTOMATİK mod çalışır: kartın buzzer'ı sırayla şunları çalar: özel melodi (C4-E4-G4-C5), Doğum Günü, Twinkle Twinkle, Jingle Bells ve hızlı tempoda (200 BPM) Başlangıç Melodisi; sonra baştan başlar. B1 butonuna basınca MANUEL moda geçer: müzik durur, ne çalınacağını seri porttan siz seçersiniz. B1'e tekrar basınca otomatik demoya döner. Notalar \"C4\", \"D#5\", \"Bb3\" gibi adlarla yazılır (C=Do, D=Re, E=Mi, F=Fa, G=Sol, A=La, B=Si; sayı = oktav). Tempo BPM = dakikadaki vuruş sayısı.",
+        "en": "At startup AUTO mode runs: the board's buzzer plays in turn: a custom melody (C4-E4-G4-C5), Happy Birthday, Twinkle Twinkle, Jingle Bells and the Startup Jingle at a fast tempo (200 BPM); then it starts again. Press B1 to switch to MANUAL mode: the music stops and you choose what to play from the serial port. Press B1 again to go back to the auto demo. Notes are written by name like \"C4\", \"D#5\", \"Bb3\" (C=Do, D=Re, E=Mi, F=Fa, G=Sol, A=La, B=Si; the number = octave). Tempo BPM = beats per minute."
+      },
+      "wiring": "Ek modül GEREKMEZ - kartın buzzer'ı (IO5) kullanılır. NO extra module needed - the board's buzzer (IO5) is used. NEDEN KENDİ ÇALARIMIZ? / WHY OUR OWN PLAYER? minibot.buzzerPlayMelody() çok kolaydır ama melodi bitene kadar (10-20 sn) her şeyi bekletir: B1 ve seri komutlar o sırada çalışmaz. Bu örnek notaları millis() ile tek tek çalar; böylece buton ve komutlar her an cevap verir. minibot.buzzerPlayMelody() is very easy but it blocks everything until the melody ends (10-20 s): B1 and serial commands don't work meanwhile. This example plays the notes one by one with millis(), so the button and commands always respond.",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "oto",
+          "en": "auto",
+          "description": {
+            "tr": "otomatik demo",
+            "en": "auto demo"
+          }
+        },
+        {
+          "tr": "manuel",
+          "en": "manual",
+          "description": {
+            "tr": "manuel mod",
+            "en": "manual mode"
+          }
+        },
+        {
+          "tr": "melodi 1-5",
+          "en": "melody 1-5",
+          "description": {
+            "tr": "melodi çal (0 = özel melodi) - beklemeden çalar",
+            "en": "play a melody (0 = custom melody) - without blocking"
+          }
+        },
+        {
+          "tr": "nota C4",
+          "en": "note C4",
+          "description": {
+            "tr": "tek nota çal (minibot.buzzerPlayNote)",
+            "en": "play one note (minibot.buzzerPlayNote)"
+          }
+        },
+        {
+          "tr": "kutuphane 1",
+          "en": "library 1",
+          "description": {
+            "tr": "melodiyi kütüphanenin tek satırlık fonksiyonuyla",
+            "en": "play the melody with the library's one-line"
+          }
+        },
+        {
+          "tr": "dur",
+          "en": "stop",
+          "description": {
+            "tr": "çalmayı durdur",
+            "en": "stop playing"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_EEPROM_Advanced_Example",
+      "path": "main/2-Advanced/MINIBOT_EEPROM_Advanced_Example/MINIBOT_EEPROM_Advanced_Example.ino",
+      "category": "Advanced",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "EEPROM (KALICI HAFIZA) - İleri seviye örnek",
+        "en": "EEPROM (PERSISTENT MEMORY) - Advanced example"
+      },
+      "summary": {
+        "tr": "MINIBOT kütüphanesindeki EEPROM yardımcı fonksiyonlarını gösterir: 16 bit ve 32 bit tam sayı, ondalık sayı (float), metin (String), bayt dizisi ve CRC korumalı \"kayıt\" (record) yazma/okuma. EEPROM'daki veriler kart kapansa da SİLİNMEZ. Örnek bunu bir \"açılış sayacı\" ile gösterir: kart her açıldığında sayaç 1 artar (kartı resetleyip deneyin!). ESP8266'da EEPROM aslında Flash bellektir; çok sık yazmak ömrünü kısaltır. Bu yüzden sadece açılışta ve sizin komutlarınızla yazıyoruz. Adres planını dikkatli yapın: farklı veriler aynı adres aralığını kullanmasın.",
+        "en": "Shows the EEPROM helper functions of the MINIBOT library: writing/reading 16-bit and 32-bit integers, floats, text (String), byte arrays and a CRC-protected \"record\". Data in EEPROM is NOT lost when the board is turned off. The example shows this with a \"boot counter\": it goes up by 1 every time the board starts (reset the board and try!). On the ESP8266 the EEPROM is really Flash memory; writing too often shortens its life. So we write only at startup and on your commands. Plan your addresses carefully: different data must not overlap."
+      },
+      "wiring": "",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "oku",
+          "en": "read",
+          "description": {
+            "tr": "tüm örnek verileri oku ve yaz",
+            "en": "read and print all sample data"
+          }
+        },
+        {
+          "tr": "yaz 1234",
+          "en": "write 1234",
+          "description": {
+            "tr": "0. adrese 16 bit sayı yaz",
+            "en": "write a 16-bit number at address 0"
+          }
+        },
+        {
+          "tr": "metin Ali",
+          "en": "text Ali",
+          "description": {
+            "tr": "30. adrese metin yaz (en fazla 30 harf)",
+            "en": "write text at address 30 (max 30 letters)"
+          }
+        },
+        {
+          "tr": "sayac",
+          "en": "count",
+          "description": {
+            "tr": "açılış sayacını yaz",
+            "en": "print the boot counter"
+          }
+        },
+        {
+          "tr": "temizle",
+          "en": "clear",
+          "description": {
+            "tr": "tüm EEPROM'u sil (0xFF) - dikkat!",
+            "en": "erase the whole EEPROM (0xFF) - careful!"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_ESPNOW_Broadcast_Simple_Example",
+      "path": "main/2-Advanced/MINIBOT_ESPNOW_Broadcast_Simple_Example/MINIBOT_ESPNOW_Broadcast_Simple_Example.ino",
+      "category": "Advanced",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "espnow"
+      ],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "ESP-NOW'A İLK ADIM - en basit kablosuz haberleşme örneği",
+        "en": "FIRST STEP INTO ESP-NOW - the simplest wireless example"
+      },
+      "summary": {
+        "tr": "Bir MAC adresi bilmenize GEREK YOK: bu kod her saniye bir sayacı \"yayın\" (broadcast) olarak havaya gönderir ve aynı odada ESP-NOW ile dinleyen HERHANGİ bir CODLAI kartı (başka bir MINIBOT, bir IOTBOT ya da bir ROLEBOT - hepsi aynı veri yapısını kullanır) bunu duyabilir. Aynı anda hem gönderiyor hem dinliyoruz. Bir yayın gelince mavi LED kısa bir an yanar. Gönderen kart, paketteki kimlikten (deviceType) tanınır: 40 = IOTBOT, 41 = MINIBOT, 42 = ROLEBOT (40-49 kütüphane örneklerine ayrılmıştır). Daha sonra MINIBOT_IoTBot_ESPNOW_Pair_Example.ino ile İKİ KART ARASINDA ÖZEL (MAC adresine dayalı) bir eşleşme yapmayı öğrenebilirsiniz. MINIBOT'ta LCD ekran YOK; tüm bilgiler seri port (USB) üzerinden verilir.",
+        "en": "You do NOT need to know any MAC address: this code broadcasts a counter into the air every second, and ANY nearby CODLAI board listening over ESP-NOW (another MINIBOT, an IOTBOT, or a ROLEBOT - they all share the same data structure) can hear it. We both send AND listen at the same time. The blue LED flashes briefly when a broadcast arrives. The sender is recognised by the ID in the packet (deviceType): 40 = IOTBOT, 41 = MINIBOT, 42 = ROLEBOT (40-49 are reserved for the library examples). Later, see MINIBOT_IoTBot_ESPNOW_Pair_Example.ino to learn how to pair TWO SPECIFIC boards together using their MAC addresses. MINIBOT has NO LCD screen; all feedback is given through Serial (USB)."
+      },
+      "wiring": "",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "dur",
+          "en": "pause",
+          "description": {
+            "tr": "göndermeyi duraklat (dinleme sürer)",
+            "en": "pause sending (listening continues)"
+          }
+        },
+        {
+          "tr": "devam",
+          "en": "resume",
+          "description": {
+            "tr": "göndermeye devam et",
+            "en": "resume sending"
+          }
+        },
+        {
+          "tr": "gonder",
+          "en": "send",
+          "description": {
+            "tr": "hemen bir yayın gönder",
+            "en": "send a broadcast now"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_ESPNOW_Earthquake_Alert_Receiver_Example",
+      "path": "main/2-Advanced/MINIBOT_ESPNOW_Earthquake_Alert_Receiver_Example/MINIBOT_ESPNOW_Earthquake_Alert_Receiver_Example.ino",
+      "category": "Advanced",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "espnow",
+        "neopixel"
+      ],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "GERÇEK PROJE - Kablosuz Deprem Uyarı Ağı (MINIBOT ALICI)",
+        "en": "A REAL PROJECT - Wireless Earthquake Alert Network (MINIBOT RECEIVER)"
+      },
+      "summary": {
+        "tr": "Bu MINIBOT'un kendi sensörü yoktur; IOTBOT'un ESP-NOW ile yayınladığı \"deprem\" mesajını dinler. \"deprem = 1\" gelince buzzer iki tonlu siren çalar, mavi LED yanıp söner ve (takılıysa) akıllı LED kırmızı flaş yapar. \"deprem = 0\" gelince hepsi durur. B1 butonu SADECE bu karttaki sesi susturur (ışık yanıp sönmeye devam eder). Önce IOTBOT'a IOTBOT_ESPNOW_Earthquake_Alert_Sender_Example.ino dosyasını, isterseniz bir ROLEBOT'a da ROLEBOT_ESPNOW_Earthquake_Alert_Receiver_Example.ino dosyasını yükleyin.",
+        "en": "This MINIBOT has no sensor of its own - it listens for the \"deprem\" message the IOTBOT broadcasts over ESP-NOW. On \"deprem = 1\" the buzzer plays a two-tone siren, the blue LED blinks and (if plugged in) the smart LED flashes red. On \"deprem = 0\" everything stops. The B1 button silences ONLY this board's sound (the light keeps blinking). First upload IOTBOT_ESPNOW_Earthquake_Alert_Sender_Example.ino to an IOTBOT, and optionally ROLEBOT_ESPNOW_Earthquake_Alert_Receiver_Example.ino to a ROLEBOT."
+      },
+      "wiring": "Akıllı LED modülünü (isteğe bağlı) Port A'ya (IO14) takın. Akıllı LED'iniz yoksa aşağıdaki \"#define USE_NEOPIXEL\" satırını silin. / Plug the smart LED module (optional) into Port A (IO14). If you do not have a smart LED, delete the \"#define USE_NEOPIXEL\" line below.",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "sustur",
+          "en": "mute",
+          "description": {
+            "tr": "sesi kapat (B1 gibi)",
+            "en": "silence the sound (like B1)"
+          }
+        },
+        {
+          "tr": "durum",
+          "en": "status",
+          "description": {
+            "tr": "alarm durumu",
+            "en": "alarm state"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_ESPNOW_Fan_Control_Reactive_Example",
+      "path": "main/2-Advanced/MINIBOT_ESPNOW_Fan_Control_Reactive_Example/MINIBOT_ESPNOW_Fan_Control_Reactive_Example.ino",
+      "category": "Advanced",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "espnow"
+      ],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": true,
+      "title": {
+        "tr": "KABLOSUZ AKILLI EV FİKRİ - OTOMATİK VANTİLATÖR",
+        "en": "A WIRELESS SMART HOME IDEA - AUTOMATIC FAN"
+      },
+      "summary": {
+        "tr": "Bu MINIBOT'un kendi sıcaklık sensörü YOK - bunun yerine, aynı odadaki bir IOTBOT'un yayınladığı (broadcast) DHT sıcaklık verisini ESP-NOW ile dinler ve OTOMATİK modda sıcaklık eşiği (28 °C) geçince röle modülüne bağlı GERÇEK bir vantilatörü/fanı açar, serinleyince kapatır. Mavi LED fanın durumunu gösterir. Önce IOTBOT_ESPNOW_Temperature_Broadcast_Example.ino dosyasını bir IOTBOT'a, sonra bu kodu bir MINIBOT'a yükleyin. IOTBOT'un DHT sensörünü elinizle ısıtınca MINIBOT'un rölesi (ve bağlıysa vantilatörünüz) açılacak! B1 butonuna basınca MANUEL moda geçer: sıcaklık fanı yönetmez, fanı seri porttan siz açıp kapatırsınız. B1'e tekrar basınca otomatiğe döner.",
+        "en": "This MINIBOT has NO temperature sensor of its own - instead, it listens over ESP-NOW to the DHT temperature data broadcast by an IOTBOT in the same room and, in AUTO mode, turns on a REAL fan (wired to its relay module) when the threshold (28 °C) is passed and off when it cools down. The blue LED shows the fan state. First upload IOTBOT_ESPNOW_Temperature_Broadcast_Example.ino to an IOTBOT, then this code to a MINIBOT. Warm the IOTBOT's DHT sensor with your hand and watch the MINIBOT's relay (and your fan, if wired) turn on! Press B1 to switch to MANUAL mode: the temperature does not control the fan, you switch it on/off from the serial port. Press B1 again to go back to auto."
+      },
+      "wiring": "Röle modülünü IO12'ye bağlı sokete takın (başka bir soket kullanırsanız RELAY_PIN değerini değiştirin). / Plug the relay module into the IO12 socket (change RELAY_PIN if you use another socket). Desteklenen pinler / Supported pins: IO4 - IO12 - IO13 - IO14 (IO5 = buzzer)",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "oto",
+          "en": "auto",
+          "description": {
+            "tr": "otomatik mod (sıcaklığa göre)",
+            "en": "auto mode (by temperature)"
+          }
+        },
+        {
+          "tr": "manuel",
+          "en": "manual",
+          "description": {
+            "tr": "manuel mod",
+            "en": "manual mode"
+          }
+        },
+        {
+          "tr": "ac",
+          "en": "on",
+          "description": {
+            "tr": "fanı aç (manuel moda geçer)",
+            "en": "fan on (switches to manual)"
+          }
+        },
+        {
+          "tr": "kapat",
+          "en": "off",
+          "description": {
+            "tr": "fanı kapat (manuel moda geçer)",
+            "en": "fan off (switches to manual)"
+          }
+        },
+        {
+          "tr": "esik 30",
+          "en": "threshold 30",
+          "description": {
+            "tr": "sıcaklık eşiği (°C)",
+            "en": "temperature threshold (°C)"
+          }
+        },
+        {
+          "tr": "durum",
+          "en": "status",
+          "description": {
+            "tr": "son sıcaklık ve fan durumu",
+            "en": "last temperature and fan state"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_ESPNOW_NightLight_Reactive_Example",
+      "path": "main/2-Advanced/MINIBOT_ESPNOW_NightLight_Reactive_Example/MINIBOT_ESPNOW_NightLight_Reactive_Example.ino",
+      "category": "Advanced",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "espnow"
+      ],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": true,
+      "title": {
+        "tr": "KABLOSUZ AKILLI EV FİKRİ - OTOMATİK GECE LAMBASI",
+        "en": "A WIRELESS SMART HOME IDEA - AUTOMATIC NIGHT LIGHT"
+      },
+      "summary": {
+        "tr": "Bu MINIBOT'un kendi ışık sensörü YOK - bunun yerine, aynı odadaki bir IOTBOT'un yayınladığı (broadcast) ışık sensörü verisini ESP-NOW ile dinler ve OTOMATİK modda hava kararınca (ışık değeri eşiğin altına düşünce) kendi mavi LED'ini yakar. İki kartı kablo OLMADAN birlikte çalışır hale getiriyoruz. Önce IOTBOT_ESPNOW_LightSensor_Broadcast_Example.ino dosyasını bir IOTBOT'a, sonra bu kodu bir MINIBOT'a yükleyin. IOTBOT'un ışık sensörünü elinizle kapatınca MINIBOT'un LED'i yanacak! B1 butonuna basınca MANUEL moda geçer: lambayı seri porttan siz açıp kapatırsınız. B1'e tekrar basınca otomatiğe döner. MINIBOT'ta LCD ekran YOK; tüm bilgiler seri port (USB) üzerinden verilir.",
+        "en": "This MINIBOT has NO light sensor of its own - instead, it listens over ESP-NOW to the light sensor data broadcast by an IOTBOT in the same room and, in AUTO mode, turns its own blue LED on when it gets dark (the light value drops below the threshold). Two boards work together WITHOUT any wire. First upload IOTBOT_ESPNOW_LightSensor_Broadcast_Example.ino to an IOTBOT, then this code to a MINIBOT. Cover the IOTBOT's light sensor with your hand and watch the MINIBOT's LED turn on! Press B1 to switch to MANUAL mode: you switch the lamp on/off from the serial port. Press B1 again to go back to auto. MINIBOT has NO LCD screen; all feedback is given through Serial (USB)."
+      },
+      "wiring": "",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "oto",
+          "en": "auto",
+          "description": {
+            "tr": "otomatik mod (ışığa göre)",
+            "en": "auto mode (by light)"
+          }
+        },
+        {
+          "tr": "manuel",
+          "en": "manual",
+          "description": {
+            "tr": "manuel mod",
+            "en": "manual mode"
+          }
+        },
+        {
+          "tr": "ac",
+          "en": "on",
+          "description": {
+            "tr": "lambayı yak (manuel moda geçer)",
+            "en": "lamp on (switches to manual)"
+          }
+        },
+        {
+          "tr": "kapat",
+          "en": "off",
+          "description": {
+            "tr": "lambayı söndür (manuel moda geçer)",
+            "en": "lamp off (switches to manual)"
+          }
+        },
+        {
+          "tr": "esik 1200",
+          "en": "threshold 1200",
+          "description": {
+            "tr": "karanlık eşiği (0-4095)",
+            "en": "darkness threshold (0-4095)"
+          }
+        },
+        {
+          "tr": "durum",
+          "en": "status",
+          "description": {
+            "tr": "son ışık değeri ve lamba durumu",
+            "en": "last light value and lamp state"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_ESPNOW_Remote_Servo_Receiver_Example",
+      "path": "main/2-Advanced/MINIBOT_ESPNOW_Remote_Servo_Receiver_Example/MINIBOT_ESPNOW_Remote_Servo_Receiver_Example.ino",
+      "category": "Advanced",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "espnow",
+        "servo"
+      ],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": true,
+      "title": {
+        "tr": "GERÇEK PROJE - Kablosuz Servo Alıcısı",
+        "en": "A REAL PROJECT - Wireless Servo Receiver"
+      },
+      "summary": {
+        "tr": "UZAKTAN (otomatik) modda bu MINIBOT, IOTBOT kumanda panelinin ESP-NOW ile yayınladığı komutları dinler: \"servo\" gelince Port B'deki servo motoru o açıya YUMUŞAKÇA döndürür, \"led\" gelince mavi LED'i açar/kapatır. Aldığı her yeni komutu seri porta yazar. IOTBOT'un potansiyometresini çevirin! B1 butonuna basınca MANUEL moda geçer: panelden gelen komutlar yok sayılır, servoyu ve LED'i seri porttan siz yönetirsiniz. B1'e tekrar basınca UZAKTAN moda döner. Önce IOTBOT'a IOTBOT_ESPNOW_Remote_Control_Panel_Example.ino dosyasını yükleyin; isterseniz bir ROLEBOT'a da ROLEBOT_ESPNOW_Remote_Relay_Receiver_ Example.ino dosyasını yükleyip rölelerini aynı panelden yönetin.",
+        "en": "In REMOTE (auto) mode this MINIBOT listens to the commands the IOTBOT control panel broadcasts over ESP-NOW: on \"servo\" it turns the servo on Port B SMOOTHLY to that angle, on \"led\" it switches the blue LED on/off. It prints every new command. Turn the IOTBOT's potentiometer! Press B1 to switch to MANUAL mode: commands from the panel are ignored and you drive the servo and LED from the serial port. Press B1 again to go back to REMOTE mode. First upload IOTBOT_ESPNOW_Remote_Control_Panel_Example.ino to an IOTBOT; optionally upload ROLEBOT_ESPNOW_Remote_Relay_Receiver_Example.ino to a ROLEBOT and control its relays from the same panel."
+      },
+      "wiring": "Servo motoru Port B'ye (IO4) takın. / Plug the servo motor into Port B (IO4).",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "oto",
+          "en": "auto",
+          "description": {
+            "tr": "UZAKTAN mod (panel komutları) (\"uzaktan\" / \"remote\" da olur)",
+            "en": "REMOTE mode (panel commands) (\"remote\" / \"uzaktan\" works too)"
+          }
+        },
+        {
+          "tr": "manuel",
+          "en": "manual",
+          "description": {
+            "tr": "manuel mod",
+            "en": "manual mode"
+          }
+        },
+        {
+          "tr": "aci 90",
+          "en": "angle 90",
+          "description": {
+            "tr": "servoyu 90°'ye götür (manuel moda geçer)",
+            "en": "move the servo to 90° (switches to manual)"
+          }
+        },
+        {
+          "tr": "led ac",
+          "en": "led on",
+          "description": {
+            "tr": "mavi LED'i yak (manuel moda geçer)",
+            "en": "blue LED on (switches to manual)"
+          }
+        },
+        {
+          "tr": "led kapat",
+          "en": "led off",
+          "description": {
+            "tr": "mavi LED'i söndür",
+            "en": "blue LED off"
+          }
+        },
+        {
+          "tr": "durum",
+          "en": "status",
+          "description": {
+            "tr": "mod, açı ve LED durumu",
+            "en": "mode, angle and LED state"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_ESPNOW_Simple_Messaging_Example",
+      "path": "main/2-Advanced/MINIBOT_ESPNOW_Simple_Messaging_Example/MINIBOT_ESPNOW_Simple_Messaging_Example.ino",
+      "category": "Advanced",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "espnow"
+      ],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "ÇOCUKLAR İÇİN BASİT KABLOSUZ MESAJLAŞMA",
+        "en": "SIMPLE WIRELESS MESSAGING FOR KIDS"
+      },
+      "summary": {
+        "tr": "Bu örnek her 2 saniyede bir artan bir sayı (\"sayac\") ve kısa bir metin mesajı yayınlar (broadcast). Aynı anda başka bir CODLAI kartından (IOTBOT/MINIBOT/ ROLEBOT) gelen metin ve sayı mesajlarını da seri porta yazar. İki kart arasında (router/WiFi ağı OLMADAN) \"sohbet\" etmenin en basit yolu budur. Seri porttan kendi mesajınızı da yazıp gönderebilirsiniz! Kullanılan fonksiyonlar: espNowBegin, espNowSendText, espNowSendNumber, espNowAvailable, espNowReadText, espNowReadName, espNowReadNumber.",
+        "en": "This example broadcasts an increasing number (\"sayac\") and a short text message every 2 seconds. At the same time it prints the text and number messages that another CODLAI board (IOTBOT/MINIBOT/ROLEBOT) sends. This is the simplest way for two boards to \"chat\" (with NO router/WiFi network needed). You can also type your own message on the serial port and send it! Functions used: espNowBegin, espNowSendText, espNowSendNumber, espNowAvailable, espNowReadText, espNowReadName, espNowReadNumber."
+      },
+      "wiring": "",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "mesaj Selam",
+          "en": "msg Hello",
+          "description": {
+            "tr": "yazdığınız metni gönder (en fazla 31 harf)",
+            "en": "send the text you typed (max 31 letters)"
+          }
+        },
+        {
+          "tr": "sayi 42",
+          "en": "number 42",
+          "description": {
+            "tr": "\"sayi\" adıyla bir sayı gönder",
+            "en": "send a number named \"sayi\""
+          }
+        },
+        {
+          "tr": "dur",
+          "en": "pause",
+          "description": {
+            "tr": "otomatik gönderimi duraklat (dinleme sürer)",
+            "en": "pause automatic sending (listening continues)"
+          }
+        },
+        {
+          "tr": "devam",
+          "en": "resume",
+          "description": {
+            "tr": "otomatik gönderime devam et",
+            "en": "resume automatic sending"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_ESP_NOW_Receiver_Example",
+      "path": "main/2-Advanced/MINIBOT_ESP_NOW_Receiver_Example/MINIBOT_ESP_NOW_Receiver_Example.ino",
+      "category": "Advanced",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "espnow"
+      ],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "ESP-NOW ALICI ÖRNEĞİ (kendi veri yapımızla)",
+        "en": "ESP-NOW RECEIVER EXAMPLE (with our own data structure)"
+      },
+      "summary": {
+        "tr": "MINIBOT_ESP_NOW_Sender_Example.ino'nun gönderdiği paketi dinler ve içindeki metin, tam sayı, ondalık sayı ve mantıksal (bool) değeri seri porta yazar. Paket gelince mavi LED kısa bir an yanar. Gönderici ile alıcıdaki struct_message yapısı BİREBİR aynı olmalıdır. Gelen veri ESP-NOW'un kendi \"geri çağırma\" (callback) fonksiyonunda sadece kopyalanır; seri porta yazmak loop() içinde yapılır (daha güvenli).",
+        "en": "Listens for the packet sent by MINIBOT_ESP_NOW_Sender_Example.ino and prints the text, integer, float and boolean values inside it. The blue LED flashes briefly when a packet arrives. The struct_message structure must be EXACTLY the same on sender and receiver. The incoming data is only copied in ESP-NOW's \"callback\" function; printing is done in loop() (safer)."
+      },
+      "wiring": "",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "son",
+          "en": "last",
+          "description": {
+            "tr": "son paketi tekrar yaz",
+            "en": "print the last packet again"
+          }
+        },
+        {
+          "tr": "sayac",
+          "en": "count",
+          "description": {
+            "tr": "kaç paket geldi",
+            "en": "how many packets arrived"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_ESP_NOW_Sender_Example",
+      "path": "main/2-Advanced/MINIBOT_ESP_NOW_Sender_Example/MINIBOT_ESP_NOW_Sender_Example.ino",
+      "category": "Advanced",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "espnow"
+      ],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "ESP-NOW GÖNDERİCİ ÖRNEĞİ (kendi veri yapımızla)",
+        "en": "ESP-NOW SENDER EXAMPLE (with our own data structure)"
+      },
+      "summary": {
+        "tr": "Her 2 saniyede bir; metin, tam sayı (1-19 arası rastgele), ondalık sayı ve mantıksal (bool) değer içeren bir paket gönderir. MINIBOT_ESP_NOW_Receiver_ Example.ino yüklü bir kart bu paketi alıp ekrana yazar. Gönderici ile alıcıdaki struct_message yapısı BİREBİR aynı olmalıdır. Varsayılan adres FF:FF:FF:FF:FF:FF = YAYIN (herkese). Sadece tek bir karta göndermek için alıcının MAC adresini aşağıya yazın (alıcı kendi MAC'ini yazar).",
+        "en": "Every 2 seconds it sends a packet with a text, an integer (random 1-19), a float and a boolean. A board running MINIBOT_ESP_NOW_Receiver_Example.ino receives and prints it. The struct_message structure must be EXACTLY the same on sender and receiver. The default address FF:FF:FF:FF:FF:FF = BROADCAST (everyone). To send to one board only, put the receiver's MAC address below (the receiver prints its MAC)."
+      },
+      "wiring": "",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "gonder",
+          "en": "send",
+          "description": {
+            "tr": "hemen bir paket gönder",
+            "en": "send a packet now"
+          }
+        },
+        {
+          "tr": "dur",
+          "en": "pause",
+          "description": {
+            "tr": "otomatik gönderimi duraklat",
+            "en": "pause automatic sending"
+          }
+        },
+        {
+          "tr": "devam",
+          "en": "resume",
+          "description": {
+            "tr": "otomatik gönderime devam et",
+            "en": "resume automatic sending"
+          }
+        },
+        {
+          "tr": "aralik 5",
+          "en": "interval 5",
+          "description": {
+            "tr": "gönderim aralığı (saniye, 1-60)",
+            "en": "sending interval (seconds, 1-60)"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_Email_Sender_Example",
+      "path": "main/2-Advanced/MINIBOT_Email_Sender_Example/MINIBOT_Email_Sender_Example.ino",
+      "category": "Advanced",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "email"
+      ],
+      "needsCredentials": true,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "E-POSTA GÖNDERİCİ ÖRNEĞİ",
+        "en": "EMAIL SENDER EXAMPLE"
+      },
+      "summary": {
+        "tr": "MINIBOT WiFi'ye bağlanır ve açılışta bir deneme e-postası gönderir. Sonra B1 butonuna her bastığınızda (ya da seri porttan \"gonder\" yazdığınızda) yeni bir e-posta gönderir. Gönderim sırasında mavi LED yanar. Gmail kullanıyorsanız normal şifreniz ÇALIŞMAZ: Google Hesabı > Güvenlik > \"Uygulama şifreleri\" bölümünden 16 haneli bir uygulama şifresi alın. Gönderim birkaç saniye sürer; o sırada kart başka işe cevap vermez (normaldir). B1 bu örnekte \"e-posta gönder\" butonudur.",
+        "en": "MINIBOT joins WiFi and sends a test email at startup. After that, every press of the B1 button (or typing \"send\" on the serial port) sends a new email. The blue LED is on while sending. If you use Gmail your normal password WON'T work: get a 16-character app password from Google Account > Security > \"App passwords\". Sending takes a few seconds; the board does not respond to anything else meanwhile (that's normal). In this example B1 is the \"send email\" button."
+      },
+      "wiring": "",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "gonder",
+          "en": "send",
+          "description": {
+            "tr": "e-posta gönder",
+            "en": "send an email"
+          }
+        },
+        {
+          "tr": "durum",
+          "en": "status",
+          "description": {
+            "tr": "WiFi durumu ve gönderilen e-posta sayısı",
+            "en": "WiFi state and number of emails sent"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_Firebase_ID_Verification_Basic_Example",
+      "path": "main/2-Advanced/MINIBOT_Firebase_ID_Verification_Basic_Example/MINIBOT_Firebase_ID_Verification_Basic_Example.ino",
+      "category": "Advanced",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "firebase"
+      ],
+      "needsCredentials": true,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "FIREBASE KULLANICI DOĞRULAMA VE VERİ OKU/YAZ",
+        "en": "FIREBASE USER VERIFICATION AND DATA READ/WRITE"
+      },
+      "summary": {
+        "tr": "MINIBOT WiFi'ye bağlanır, Firebase'e e-posta/şifre ile giriş yapar (kimliği doğrulanır) ve gerçek zamanlı veritabanına (Realtime Database) örnek veriler yazar: /device/temperature, /device/status, /device/active. Sonra bu verileri belirli aralıklarla (varsayılan 30 sn) geri okuyup seri porta yazar. Firebase konsolunda değerleri değiştirirseniz bir sonraki okumada görürsünüz. WiFi açılışta bağlanamazsa kart DONMAZ: arka planda bağlanmayı bekler, bağlanınca Firebase'i başlatır.",
+        "en": "MINIBOT joins WiFi, signs in to Firebase with email/password (its identity is verified) and writes sample data to the Realtime Database: /device/temperature, /device/status, /device/active. Then it reads the data back at intervals (30 s by default) and prints it. If you change the values in the Firebase console you see them at the next read. If WiFi fails at startup the board does NOT freeze: it waits for the connection in the background and starts Firebase once connected."
+      },
+      "wiring": "NOT / NOTE: \"#define USE_FIREBASE\" satırı #include'dan ÖNCE yazılmalıdır. The \"#define USE_FIREBASE\" line must come BEFORE the #include.",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "oku",
+          "en": "read",
+          "description": {
+            "tr": "verileri hemen oku",
+            "en": "read the data now"
+          }
+        },
+        {
+          "tr": "sicaklik 25",
+          "en": "temp 25",
+          "description": {
+            "tr": "/device/temperature değerini yaz",
+            "en": "write /device/temperature"
+          }
+        },
+        {
+          "tr": "aktif",
+          "en": "active",
+          "description": {
+            "tr": "/device/active değerini tersine çevir",
+            "en": "invert /device/active"
+          }
+        },
+        {
+          "tr": "aralik 30",
+          "en": "interval 30",
+          "description": {
+            "tr": "okuma aralığı (saniye, 5-600)",
+            "en": "read interval (seconds, 5-600)"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_IFTTT_Webhook_Example",
+      "path": "main/2-Advanced/MINIBOT_IFTTT_Webhook_Example/MINIBOT_IFTTT_Webhook_Example.ino",
+      "category": "Advanced",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "ifttt"
+      ],
+      "needsCredentials": true,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "IFTTT WEBHOOK ÖRNEĞİ",
+        "en": "IFTTT WEBHOOK EXAMPLE"
+      },
+      "summary": {
+        "tr": "MINIBOT'tan IFTTT Webhooks olayı tetikler: açılışta bir \"Açıldı\" olayı, sonra B1 butonuna her basışta (ya da seri porttan \"tetikle\" yazınca) bir \"Butona basıldı\" olayı gönderir. IFTTT bu olayla telefonunuza bildirim, Google Sheets'e satır, Discord mesajı vb. gönderebilir. Gönderim sırasında mavi LED yanar. Hızlı kurulum: 1. https://ifttt.com/create adresinde \"Webhooks\" tetikleyicisini seçin; Event Name alanını aşağıdaki iftttEventName ile aynı yapın. 2. İstediğiniz hedef servisi seçerek appleti tamamlayın (Google Sheets, Discord...). 3. https://ifttt.com/maker_webhooks sayfasındaki \"Documentation\" bölümünden key değerini kopyalayıp iftttWebhookKey'e yapıştırın. 4. value1 / value2 / value3 alanlarını applette \"ingredient\" olarak kullanabilirsiniz. USE_IFTTT tanımlanınca WiFi yardımcıları otomatik açılır; ayrıca USE_WIFI gerekmez. B1 bu örnekte \"olayı tetikle\" butonudur (iki tetikleme arası en az 4 sn).",
+        "en": "Triggers IFTTT Webhooks events from MINIBOT: a \"Boot\" event at startup, then a \"Button pressed\" event on every press of B1 (or typing \"trigger\" on the serial port). IFTTT can then send a phone notification, add a Google Sheets row, post a Discord message, etc. The blue LED is on while sending. Quick setup: 1. At https://ifttt.com/create choose the \"Webhooks\" trigger; make Event Name the same as iftttEventName below. 2. Finish the applet with any target service (Google Sheets, Discord...). 3. Copy the key from the \"Documentation\" section of https://ifttt.com/maker_webhooks and paste it into iftttWebhookKey. 4. You can use value1 / value2 / value3 as \"ingredients\" in your applet. Defining USE_IFTTT turns on the WiFi helpers automatically; no USE_WIFI needed. In this example B1 is the \"trigger the event\" button (at least 4 s between triggers)."
+      },
+      "wiring": "",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "tetikle",
+          "en": "trigger",
+          "description": {
+            "tr": "olayı şimdi tetikle",
+            "en": "trigger the event now"
+          }
+        },
+        {
+          "tr": "durum",
+          "en": "status",
+          "description": {
+            "tr": "WiFi durumu ve gönderilen olay sayısı",
+            "en": "WiFi state and number of events sent"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_Internet_Clock_Alarm_Example",
+      "path": "main/2-Advanced/MINIBOT_Internet_Clock_Alarm_Example/MINIBOT_Internet_Clock_Alarm_Example.ino",
+      "category": "Advanced",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "wifi"
+      ],
+      "needsCredentials": true,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "İNTERNET SAATİ - Saat ve Alarm",
+        "en": "INTERNET TIME - Clock and Alarm"
+      },
+      "summary": {
+        "tr": "MINIBOT WiFi'ye bağlanıp saati internetten (NTP) çeker ve her saniye seri porta saat, tarih ve günü yazar. \"Saat 07:30 OLUNCA\" alarm BİR KEZ çalar (ntpTimeReached): 30 sn boyunca bip-bip-bip sesi ve yanıp sönen LED. B1 ya da \"sustur\" alarmı susturur. \"Saat 20:00 ile 07:00 ARASINDA İSE\" mavi LED yanar (ntpTimeIsBetween). \"Saat 12:00 İSE\" (o dakika boyunca) seri porta \"Öğle vakti\" yazılır (ntpTimeIs). B1 butonuna basınca (alarm çalmıyorken) saat hemen GÜNCELLENİR (ntpUpdate). Bu fonksiyonlar editördeki \"İnternet saatini kullan / güncelle\", \"saat ... ise\", \"saat ... olunca\" bloklarının karşılığıdır.",
+        "en": "The MINIBOT connects to WiFi, gets the time from the internet (NTP) and prints time, date and weekday every second. \"WHEN it is 07:30\" the alarm rings ONCE (ntpTimeReached): beep-beep-beep and a blinking LED for 30 s. B1 or \"stop\" silences it. \"IF the time is BETWEEN 20:00 and 07:00\" the blue LED is on (ntpTimeIsBetween). \"IF it is 12:00\" (during that minute) \"Noon\" is printed (ntpTimeIs). Pressing B1 (when no alarm is ringing) UPDATES the time right away (ntpUpdate). These functions are what the editor's \"use / update internet time\", \"if time is ...\", \"when time is ...\" blocks call."
+      },
+      "wiring": "Ek modül GEREKMEZ. Aşağıya WiFi adınızı ve şifrenizi yazın. NO extra module needed. Fill in your WiFi name and password below.",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "sustur",
+          "en": "stop",
+          "description": {
+            "tr": "çalan alarmı sustur",
+            "en": "silence a ringing alarm"
+          }
+        },
+        {
+          "tr": "guncelle",
+          "en": "update",
+          "description": {
+            "tr": "saati internetten yeniden al",
+            "en": "get the time from the internet again"
+          }
+        },
+        {
+          "tr": "saat",
+          "en": "time",
+          "description": {
+            "tr": "saati şimdi yaz",
+            "en": "print the time now"
+          }
+        },
+        {
+          "tr": "sessiz",
+          "en": "quiet",
+          "description": {
+            "tr": "her saniye saat yazmayı kapat/aç",
+            "en": "stop/start printing the time every second"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_IoTBot_ESPNOW_Pair_Example",
+      "path": "main/2-Advanced/MINIBOT_IoTBot_ESPNOW_Pair_Example/MINIBOT_IoTBot_ESPNOW_Pair_Example.ino",
+      "category": "Advanced",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "espnow"
+      ],
+      "needsCredentials": false,
+      "needsPeerMac": true,
+      "autoManual": false,
+      "title": {
+        "tr": "MINIBOT <-> IOTBOT ESP-NOW EŞLEŞMESİ",
+        "en": "MINIBOT <-> IOTBOT ESP-NOW PAIRING"
+      },
+      "summary": {
+        "tr": "MINIBOT'u, aynı odadaki bir IOTBOT ile ROUTER/WIFI AĞI OLMADAN (ESP-NOW ile) doğrudan haberleştirir. MINIBOT yarım saniyede bir kendi B1 butonunun durumunu ve artan bir sayacı IOTBOT'a gönderir; IOTBOT'un potansiyometre değerini geri alıp kendi mavi LED'ini o değere göre yanıp söndürür (pot yükseldikçe daha hızlı). IOTBOT'un B3 butonu basılıysa LED sabit yanar. B1 bu örnekte IOTBOT'a gönderilen butondur (basılıyken IOTBOT bunu görür). MINIBOT paketleri 41 kimliğiyle (deviceType, MINIBOT örnek kartı) gönderir. MINIBOT'ta LCD ekran YOK; tüm bilgiler seri port (USB) üzerinden verilir. Eşlenecek IOTBOT'a CODLAI_IOTBOT kütüphanesindeki IOTBOT_MiniBot_ESPNOW_Pair_ Example.ino dosyasını yükleyin. ÖNEMLİ: Aşağıdaki kPeerMac dizisini GERÇEK IOTBOT'unuzun MAC adresiyle değiştirin (IOTBOT tarafındaki kod seri porta kendi MAC'ini yazar).",
+        "en": "Talks directly (peer-to-peer, no router/WiFi network needed) with an IOTBOT in the same room over ESP-NOW. Every half second MINIBOT sends its own B1 button state and an increasing counter to the IOTBOT; it receives the IOTBOT's potentiometer value back and blinks its blue LED at a rate based on it (higher pot = faster). The LED stays solid on while the IOTBOT's B3 button is held. In this example B1 is the button sent to the IOTBOT (the IOTBOT sees it while held). MINIBOT sends its packets with ID 41 (deviceType, the MINIBOT example board). MINIBOT has NO LCD screen; all feedback is given through Serial (USB). Upload IOTBOT_MiniBot_ESPNOW_Pair_Example.ino (in the CODLAI_IOTBOT library's examples) to the IOTBOT you want to pair with. IMPORTANT: Replace kPeerMac below with your actual IOTBOT's MAC address (the IOTBOT-side sketch prints its own MAC to Serial)."
+      },
+      "wiring": "",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "durum",
+          "en": "status",
+          "description": {
+            "tr": "son pot değeri, gönderilen paket sayısı",
+            "en": "last pot value, packets sent"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_IoTBot_SmartLED_Remote_Example",
+      "path": "main/2-Advanced/MINIBOT_IoTBot_SmartLED_Remote_Example/MINIBOT_IoTBot_SmartLED_Remote_Example.ino",
+      "category": "Advanced",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "espnow"
+      ],
+      "needsCredentials": false,
+      "needsPeerMac": true,
+      "autoManual": false,
+      "title": {
+        "tr": "EĞLENCELİ KABLOSUZ ÖRNEK - Uzaktan akıllı LED kumandası",
+        "en": "A FUN WIRELESS EXAMPLE - Remote smart LED control"
+      },
+      "summary": {
+        "tr": "Bu MINIBOT'un B1 butonuna her bastığınızda, uzaktaki bir IOTBOT'un akıllı LED serisine (NeoPixel) \"bir sonraki efekte geç\" komutu gönderilir. Hiçbir kablo yok - sadece ESP-NOW. Efektler: 0 = gökkuşağı, 1 = gökkuşağı takip, 2 = tiyatro takip, 3 = renk silme. Önce IOTBOT_MiniBot_SmartLED_Remote_Example.ino dosyasını bir IOTBOT'a, sonra bu kodu bir MINIBOT'a yükleyin. ÖNEMLİ: kPeerMac dizisini kendi IOTBOT'unuzun MAC adresiyle değiştirin. B1 bu örnekte kumanda butonudur. MINIBOT paketleri 41 kimliğiyle (deviceType, MINIBOT örnek kartı) gönderir. MINIBOT'ta LCD ekran YOK; tüm bilgiler seri port (USB) üzerinden verilir.",
+        "en": "Every time you press this MINIBOT's B1 button, a \"switch to the next effect\" command is sent to a remote IOTBOT's smart LED strip (NeoPixel). No wire - just ESP-NOW. Effects: 0 = rainbow, 1 = rainbow chase, 2 = theater chase, 3 = color wipe. Upload IOTBOT_MiniBot_SmartLED_Remote_Example.ino to an IOTBOT first, then this code to a MINIBOT. IMPORTANT: Replace kPeerMac with your own IOTBOT's MAC address. In this example B1 is the remote-control button. MINIBOT sends its packets with ID 41 (deviceType, the MINIBOT example board). MINIBOT has NO LCD screen; all feedback is given through Serial (USB)."
+      },
+      "wiring": "",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "sonraki",
+          "en": "next",
+          "description": {
+            "tr": "sonraki efekt (B1 gibi)",
+            "en": "next effect (like B1)"
+          }
+        },
+        {
+          "tr": "efekt 2",
+          "en": "effect 2",
+          "description": {
+            "tr": "doğrudan o efekti gönder (0-3)",
+            "en": "send that effect directly (0-3)"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_NTP_Time_Advanced_Example",
+      "path": "main/2-Advanced/MINIBOT_NTP_Time_Advanced_Example/MINIBOT_NTP_Time_Advanced_Example.ino",
+      "category": "Advanced",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "wifi"
+      ],
+      "needsCredentials": true,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "NTP SAAT SENKRONİZASYONU - İleri seviye örnek",
+        "en": "NTP TIME SYNCHRONIZATION - Advanced example"
+      },
+      "summary": {
+        "tr": "MINIBOT WiFi'ye bağlanır, saati internetten (NTP) alır ve tarih/saati yazar. Son senkron zamanını EEPROM'a CRC korumalı bir \"kayıt\" (record) olarak saklar. Açılışta önce ÖNCEKİ kaydı okur: kartı yeniden başlatınca bir önceki senkron zamanının hatırlandığını görürsünüz. ntpBegin() WiFi bağlantısından SONRA çağrılmalıdır.",
+        "en": "MINIBOT joins WiFi, gets the time from the internet (NTP) and prints date/time. It stores the last sync time in EEPROM as a CRC-protected \"record\". At startup it first reads the PREVIOUS record: restart the board and you see the previous sync time was remembered. Call ntpBegin() AFTER connecting to WiFi."
+      },
+      "wiring": "",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "saat",
+          "en": "time",
+          "description": {
+            "tr": "şu anki tarih ve saat",
+            "en": "current date and time"
+          }
+        },
+        {
+          "tr": "senkron",
+          "en": "sync",
+          "description": {
+            "tr": "saati yeniden al ve EEPROM'a kaydet",
+            "en": "get the time again and save it to EEPROM"
+          }
+        },
+        {
+          "tr": "kayit",
+          "en": "record",
+          "description": {
+            "tr": "EEPROM'daki son senkron kaydını oku",
+            "en": "read the last sync record from EEPROM"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_NeoPixel_Effects_Example",
+      "path": "main/2-Advanced/MINIBOT_NeoPixel_Effects_Example/MINIBOT_NeoPixel_Effects_Example.ino",
+      "category": "Advanced",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "neopixel"
+      ],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": true,
+      "title": {
+        "tr": "NEOPIXEL EFEKTLERİ - Otomatik demo + Manuel kontrol",
+        "en": "NEOPIXEL EFFECTS - Automatic demo + Manual control"
+      },
+      "summary": {
+        "tr": "Akıllı LED (NeoPixel) için kolaylık fonksiyonlarını gösterir: tek renge boyama (Fill), söndürme (Clear), parlaklık (SetBrightness), yanıp sönme (Blink) ve \"nefes alma\" (Breathe). Açılışta OTOMATİK mod çalışır: kırmızı -> yeşil -> sönük -> loş mavi -> parlak mavi -> 3 kez sarı yanıp sönme -> mor nefes alma -> sönük ... ve baştan. B1 butonuna basınca MANUEL moda geçer: demo durur, rengi ve efekti seri porttan siz seçersiniz. B1'e tekrar basınca otomatik moda döner.",
+        "en": "Shows the smart LED (NeoPixel) convenience functions: filling with one color (Fill), turning off (Clear), brightness (SetBrightness), blinking (Blink) and a \"breathing\" effect (Breathe). At startup AUTO mode runs: red -> green -> off -> dim blue -> bright blue -> yellow blinks 3 times -> purple breathing -> off ... and again. Press B1 to switch to MANUAL mode: the demo stops and you choose the color and effect from the serial port. Press B1 again to go back to auto mode."
+      },
+      "wiring": "Akıllı LED modülünü IO12'ye bağlı sokete takın. Desteklenen pinler / Supported pins: IO4 - IO5 - IO12 - IO13 - IO14 (IO5 kartın buzzer'ını da sürer / IO5 also drives the board's buzzer.) NOT / NOTE: moduleSmartLEDBlink efekt bitene kadar (1,2 sn) programı bekletir. Otomatik demo yanıp sönmeyi ve nefes almayı millis() ile kendisi çizer, böylece B1 her an çalışır; \"yanip\" komutu ise kütüphane fonksiyonunu doğrudan çağırır. Nefes alma: parlaklık her karede değişir ve renk YENİDEN yazılır (Fill); sadece parlaklığı değiştirmek, kısılan rengi geri getiremez. moduleSmartLEDBlink blocks the program until the effect ends (1.2 s). The auto demo draws blinking and breathing itself with millis(), so B1 always responds; the \"blink\" command calls the library function directly. Breathing: the brightness changes every frame and the color is written AGAIN (Fill); changing only the brightness cannot bring a dimmed color back.",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "oto",
+          "en": "auto",
+          "description": {
+            "tr": "otomatik demo",
+            "en": "auto demo"
+          }
+        },
+        {
+          "tr": "manuel",
+          "en": "manual",
+          "description": {
+            "tr": "manuel mod",
+            "en": "manual mode"
+          }
+        },
+        {
+          "tr": "renk 255 0 0",
+          "en": "color 255 0 0",
+          "description": {
+            "tr": "istediğiniz renk (R G B, 0-255)",
+            "en": "any color (R G B, 0-255)"
+          }
+        },
+        {
+          "tr": "parlaklik 50",
+          "en": "brightness 50",
+          "description": {
+            "tr": "parlaklık (%0-100)",
+            "en": "brightness (0-100 %)"
+          }
+        },
+        {
+          "tr": "yanip",
+          "en": "blink",
+          "description": {
+            "tr": "son renkle 3 kez yanıp sön (moduleSmartLEDBlink)",
+            "en": "blink 3 times in the last color (moduleSmartLEDBlink)"
+          }
+        },
+        {
+          "tr": "nefes",
+          "en": "breathe",
+          "description": {
+            "tr": "son renkle 2 sn nefes al (beklemeden)",
+            "en": "breathe for 2 s in the last color (non-blocking)"
+          }
+        },
+        {
+          "tr": "kapat",
+          "en": "off",
+          "description": {
+            "tr": "söndür (moduleSmartLEDClear)",
+            "en": "turn off (moduleSmartLEDClear)"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_OTA_Update_Example",
+      "path": "main/2-Advanced/MINIBOT_OTA_Update_Example/MINIBOT_OTA_Update_Example.ino",
+      "category": "Advanced",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "ota",
+        "wifi"
+      ],
+      "needsCredentials": true,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "KABLOSUZ YAZILIM GÜNCELLEME (OTA - Over The Air)",
+        "en": "WIRELESS SOFTWARE UPDATE (OTA - Over The Air)"
+      },
+      "summary": {
+        "tr": "MINIBOT WiFi'ye bağlanır ve OTA'yı başlatır. Bundan sonra yeni kodu USB kablosu OLMADAN, aynı ağdaki bilgisayardan yükleyebilirsiniz: Arduino IDE'de Araçlar > Port listesinde \"MINIBOT-OTA\" ağ portunu seçin (şifre: 1234). Kodun çalıştığını görmek için mavi LED saniyede bir yanıp söner. Yanıp sönme hızını (BLINK_MS) değiştirip OTA ile yükleyin: değişikliği hemen görürsünüz! OTA kullanmak için önce WiFi bağlantısı kurulmalı ve loop() içinde otaHandle() sürekli çağrılmalıdır; loop()'u uzun delay()'lerle bekletmeyin.",
+        "en": "MINIBOT joins WiFi and starts OTA. From then on you can upload new code WITHOUT a USB cable, from a computer on the same network: in Arduino IDE pick the \"MINIBOT-OTA\" network port under Tools > Port (password: 1234). The blue LED blinks once per second to show the code is running. Change the blink speed (BLINK_MS) and upload over OTA: you see the change right away! To use OTA, WiFi must be connected first and otaHandle() must be called all the time in loop(); don't block loop() with long delay()s."
+      },
+      "wiring": "NOT / NOTE: USE_OTA ve USE_WIFI satırları #include'dan ÖNCE yazılmalıdır. The USE_OTA and USE_WIFI lines must come BEFORE the #include.",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "durum",
+          "en": "status",
+          "description": {
+            "tr": "WiFi, IP adresi ve OTA adı",
+            "en": "WiFi, IP address and OTA name"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_STA_Mode_Local_Server_Basic_Example",
+      "path": "main/2-Advanced/MINIBOT_STA_Mode_Local_Server_Basic_Example/MINIBOT_STA_Mode_Local_Server_Basic_Example.ino",
+      "category": "Advanced",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "server"
+      ],
+      "needsCredentials": true,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "İSTASYON (STA) MODUNDA YEREL WEB SUNUCU",
+        "en": "LOCAL WEB SERVER IN STATION (STA) MODE"
+      },
+      "summary": {
+        "tr": "MINIBOT evinizin/okulunuzun WiFi ağına bağlanır ve o ağdaki herkesin açabileceği bir web sayfası sunar. Seri portta yazan adresi (ör. http://192.168.1.45/demopage) aynı ağdaki bir telefonda/bilgisayarda açın. Ağa bağlanamazsa kendi ağını (AP modu, \"CODLAI Server\" / \"12345678\") kurar; o zaman adres http://192.168.4.1/demopage olur.",
+        "en": "MINIBOT joins your home/school WiFi network and serves a web page anyone on that network can open. Open the address printed on Serial (e.g. http://192.168.1.45/demopage) on a phone/computer on the same network. If it can't join the network it creates its own (AP mode, \"CODLAI Server\" / \"12345678\"); then the address is http://192.168.4.1/demopage."
+      },
+      "wiring": "NOT / NOTE: \"#define USE_SERVER\" satırı #include'dan ÖNCE yazılmalıdır. WiFi'ye bağlanmak 30 saniyeye kadar sürebilir. / The \"#define USE_SERVER\" line must come BEFORE the #include. Connecting to WiFi can take up to 30 seconds.",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "durum",
+          "en": "status",
+          "description": {
+            "tr": "mod (STA/AP), IP adresi, sinyal gücü",
+            "en": "mode (STA/AP), IP address, signal strength"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_Telegram_Notification_Example",
+      "path": "main/2-Advanced/MINIBOT_Telegram_Notification_Example/MINIBOT_Telegram_Notification_Example.ino",
+      "category": "Advanced",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "telegram"
+      ],
+      "needsCredentials": true,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "TELEGRAM BİLDİRİM ÖRNEĞİ",
+        "en": "TELEGRAM NOTIFICATION EXAMPLE"
+      },
+      "summary": {
+        "tr": "MINIBOT WiFi'ye bağlanır. B1 butonuna basınca Telegram botunuz size \"MINIBOT: Butona basıldı!\" mesajı gönderir. Seri porttan kendi mesajınızı da yazıp gönderebilirsiniz. Gönderim sırasında mavi LED yanar. Kurulum: Telegram'da @BotFather ile bir bot oluşturup TOKEN'ı alın; @userinfobot ile kendi CHAT ID'nizi öğrenin; sonra botunuza bir kez \"merhaba\" yazın. B1 bu örnekte \"bildirim gönder\" butonudur (iki mesaj arası en az 5 sn).",
+        "en": "MINIBOT joins WiFi. When you press B1, your Telegram bot sends you the message \"MINIBOT: Button pressed!\". You can also type your own message on the serial port and send it. The blue LED is on while sending. Setup: create a bot with @BotFather in Telegram and get its TOKEN; find your own CHAT ID with @userinfobot; then write \"hello\" to your bot once. In this example B1 is the \"send notification\" button (at least 5 s between messages)."
+      },
+      "wiring": "",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "gonder",
+          "en": "send",
+          "description": {
+            "tr": "hazır mesajı gönder (B1 gibi)",
+            "en": "send the ready message (like B1)"
+          }
+        },
+        {
+          "tr": "mesaj Selam!",
+          "en": "msg Hi!",
+          "description": {
+            "tr": "yazdığınız mesajı gönder",
+            "en": "send the message you typed"
+          }
+        },
+        {
+          "tr": "durum",
+          "en": "status",
+          "description": {
+            "tr": "WiFi durumu ve gönderilen mesaj sayısı",
+            "en": "WiFi state and number of messages sent"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_Weather_Info_Example",
+      "path": "main/2-Advanced/MINIBOT_Weather_Info_Example/MINIBOT_Weather_Info_Example.ino",
+      "category": "Advanced",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "weather"
+      ],
+      "needsCredentials": true,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "HAVA DURUMU BİLGİSİ",
+        "en": "WEATHER INFO"
+      },
+      "summary": {
+        "tr": "MINIBOT WiFi'ye bağlanır ve seçtiğiniz şehrin hava durumunu (sıcaklık + durum) internetten alıp her dakika seri porta yazar. Gelen metin servisin dilindedir (genelde İngilizce, ör. \"+18°C Partly cloudy\"). API_KEY boş bırakılırsa ücretsiz wttr.in servisi kullanılır; OpenWeatherMap anahtarınız varsa API_KEY'e yazabilirsiniz.",
+        "en": "MINIBOT joins WiFi, gets the weather (temperature + condition) of the city you choose from the internet and prints it every minute. The text comes in the service's language (usually English, e.g. \"+18°C Partly cloudy\"). If API_KEY is left empty the free wttr.in service is used; if you have an OpenWeatherMap key you can put it in API_KEY."
+      },
+      "wiring": "",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "guncelle",
+          "en": "update",
+          "description": {
+            "tr": "hava durumunu şimdi al",
+            "en": "get the weather now"
+          }
+        },
+        {
+          "tr": "sehir Ankara",
+          "en": "city Ankara",
+          "description": {
+            "tr": "şehri değiştir",
+            "en": "change the city"
+          }
+        },
+        {
+          "tr": "aralik 5",
+          "en": "interval 5",
+          "description": {
+            "tr": "güncelleme aralığı (dakika, 1-60)",
+            "en": "update interval (minutes, 1-60)"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_WiFi_Simple_Status_Example",
+      "path": "main/2-Advanced/MINIBOT_WiFi_Simple_Status_Example/MINIBOT_WiFi_Simple_Status_Example.ino",
+      "category": "Advanced",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "wifi"
+      ],
+      "needsCredentials": true,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "KABLOSUZ İLETİŞİME İLK ADIM - En basit WiFi örneği",
+        "en": "FIRST STEP INTO WIRELESS COMMUNICATION - the simplest WiFi example"
+      },
+      "summary": {
+        "tr": "MINIBOT'u evinizin/okulunuzun WiFi ağına bağlar; bağlantı başarılı olursa aldığı IP adresini seri portta gösterir ve mavi LED yanık kalır. Sunucu YOK, web sayfası YOK - sadece \"ağa katılmak\" ne demek onu öğretir. Bağlantı koparsa ya da geri gelirse seri porta yazılır (LED de söner/yanar). MINIBOT'ta LCD ekran olmadığı için tüm bilgiler seri port (USB) üzerinden verilir.",
+        "en": "Connects MINIBOT to your home/school WiFi network; once connected it shows the IP address on Serial and the blue LED stays on. NO server, NO web page - just teaches what \"joining a network\" means. If the connection drops or comes back it is printed (and the LED goes off/on). MINIBOT has no LCD screen, so all feedback is given through Serial (USB)."
+      },
+      "wiring": "",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "durum",
+          "en": "status",
+          "description": {
+            "tr": "bağlantı, IP, MAC ve sinyal gücü",
+            "en": "connection, IP, MAC and signal strength"
+          }
+        },
+        {
+          "tr": "baglan",
+          "en": "connect",
+          "description": {
+            "tr": "ağa yeniden bağlanmayı dene",
+            "en": "try to join the network again"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_Wikipedia_Search_Example",
+      "path": "main/2-Advanced/MINIBOT_Wikipedia_Search_Example/MINIBOT_Wikipedia_Search_Example.ino",
+      "category": "Advanced",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "wikipedia"
+      ],
+      "needsCredentials": true,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "VİKİPEDİ ARAMA ÖRNEĞİ",
+        "en": "WIKIPEDIA SEARCH EXAMPLE"
+      },
+      "summary": {
+        "tr": "MINIBOT WiFi'ye bağlanır, Vikipedi'de \"Robot\" konusunu arar ve kısa özetini seri porta yazar. Sonra seri porttan istediğiniz konuyu aratabilirsiniz. Arama, seçili dilin Vikipedi'sinde yapılır: Türkçe -> tr.wikipedia.org, English -> en.wikipedia.org (\"dil\" komutu ikisini de değiştirir). Konu adı Vikipedi'deki başlıkla aynı olmalıdır (ör. \"Mustafa Kemal Atatürk\", \"Ay\"). Boşluklar otomatik olarak \"_\" yapılır.",
+        "en": "MINIBOT joins WiFi, looks up \"Robot\" on Wikipedia and prints its short summary. After that you can search any topic from the serial port. The search uses the Wikipedia of the selected language: Turkish -> tr.wikipedia.org, English -> en.wikipedia.org (the \"lang\" command switches both). The topic must match the Wikipedia title (e.g. \"Albert Einstein\", \"Moon\"). Spaces are turned into \"_\" automatically."
+      },
+      "wiring": "",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "ara Kedi",
+          "en": "search Cat",
+          "description": {
+            "tr": "konuyu ara ve özetini yaz",
+            "en": "search the topic and print its summary"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_Magnetic_Door_Alarm_Example",
+      "path": "main/3-Projects/MINIBOT_Magnetic_Door_Alarm_Example/MINIBOT_Magnetic_Door_Alarm_Example.ino",
+      "category": "Projects",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "GERÇEK PROJE - Kapı/Pencere Alarmı",
+        "en": "A REAL PROJECT - Door/Window Alarm"
+      },
+      "summary": {
+        "tr": "Manyetik sensörün iki parçasını (mıknatıs + sensör) bir kapının/pencerenin açılan ve sabit tarafına yerleştirin. Sistem \"kurulu\" haldeyken kapı açılırsa (manyetik bağlantı koparsa) buzzer alarm çalar ve mavi LED yanıp söner. B1 butonu sistemi KURAR / ÇÖZER (etkisizleştirir) - tıpkı gerçek bir ev alarmı gibi. Çözmek alarmı da susturur.",
+        "en": "Place the magnetic sensor's two parts (magnet + sensor) on a door/window's moving and fixed sides. While the system is \"armed\", opening the door (breaking the magnetic contact) makes the buzzer sound an alarm and the blue LED flash. The B1 button ARMS / DISARMS the system - just like a real home alarm. Disarming also silences the alarm."
+      },
+      "wiring": "Manyetik sensörü IO12'ye bağlı sokete takın (başka bir soket kullanırsanız MAGNETIC_PIN değerini değiştirin). / Plug the magnetic sensor into the IO12 socket (change MAGNETIC_PIN if you use another socket). Desteklenen pinler / Supported pins: IO4 - IO12 - IO13 - IO14 (IO5 = buzzer)",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "kur",
+          "en": "arm",
+          "description": {
+            "tr": "sistemi kur",
+            "en": "arm the system"
+          }
+        },
+        {
+          "tr": "coz",
+          "en": "disarm",
+          "description": {
+            "tr": "sistemi çöz (alarmı da susturur)",
+            "en": "disarm the system (also silences the alarm)"
+          }
+        },
+        {
+          "tr": "durum",
+          "en": "status",
+          "description": {
+            "tr": "sistem ve kapı durumu",
+            "en": "system and door state"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_PIR_Security_Alarm_Example",
+      "path": "main/3-Projects/MINIBOT_PIR_Security_Alarm_Example/MINIBOT_PIR_Security_Alarm_Example.ino",
+      "category": "Projects",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "GERÇEK PROJE - Güvenlik Alarmı",
+        "en": "A REAL PROJECT - Security Alarm"
+      },
+      "summary": {
+        "tr": "Sistem açılışta KURULU başlar. PIR hareket sensörü YENİ bir hareket algılayınca buzzer sürekli alarm çalar ve mavi LED yanıp söner. B1 butonu: alarm çalarken alarmı SUSTURUR (gerçek alarmlardaki \"iptal\" tuşu gibi). Alarm yokken sistemi KURAR / ÇÖZER. Susturulan alarm aynı hareketle hemen tekrar çalmaz: sensör \"hareket yok\"a dönüp YENİ bir hareket görmesi gerekir. İpucu: PIR açıldıktan sonra ~30-60 sn ortama alışır; o sırada yanlış alarm olabilir.",
+        "en": "The system starts ARMED. When the PIR motion sensor detects a NEW movement the buzzer sounds a continuous alarm and the blue LED flashes. The B1 button: while the alarm sounds it SILENCES it (like the \"cancel\" key on real alarms). With no alarm it ARMS / DISARMS the system. A silenced alarm does not restart from the same movement: the sensor must go back to \"no motion\" and then see a NEW movement. Tip: after power-up the PIR needs ~30-60 s to settle; false alarms may happen then."
+      },
+      "wiring": "PIR sensörünü IO12'ye bağlı sokete takın (başka bir soket kullanırsanız PIR_PIN değerini değiştirin). / Plug the PIR sensor into the IO12 socket (change PIR_PIN if you use another socket). Desteklenen pinler / Supported pins: IO4 - IO12 - IO13 - IO14 (IO5 = buzzer)",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "sustur",
+          "en": "silence",
+          "description": {
+            "tr": "alarmı sustur",
+            "en": "silence the alarm"
+          }
+        },
+        {
+          "tr": "kur",
+          "en": "arm",
+          "description": {
+            "tr": "sistemi kur",
+            "en": "arm the system"
+          }
+        },
+        {
+          "tr": "coz",
+          "en": "disarm",
+          "description": {
+            "tr": "sistemi çöz",
+            "en": "disarm the system"
+          }
+        },
+        {
+          "tr": "durum",
+          "en": "status",
+          "description": {
+            "tr": "sistem ve sensör durumu",
+            "en": "system and sensor state"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_Parking_Assistant_Example",
+      "path": "main/3-Projects/MINIBOT_Parking_Assistant_Example/MINIBOT_Parking_Assistant_Example.ino",
+      "category": "Projects",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "GERÇEK PROJE - Park Sensörü",
+        "en": "A REAL PROJECT - Parking Sensor"
+      },
+      "summary": {
+        "tr": "Ultrasonik mesafe sensörü bir cisme (örneğin bir duvara) yaklaştıkça buzzer GİDEREK HIZLANAN bir \"bip\" sesi çıkarır - tıpkı arabalardaki park sensörü gibi. Çok yaklaşınca (10 cm altı) ses sürekli hale gelir ve mavi LED yanar. 100 cm'den uzaktaki cisimler için ses yoktur. Kod hiç beklemeden (millis ile) çalışır: ölçüm, bip ve komutlar aynı anda yürür. B1 butonu sesi KAPATIR / AÇAR (LED ve seri port çalışmaya devam eder).",
+        "en": "As the ultrasonic distance sensor gets closer to an object (e.g. a wall), the buzzer beeps FASTER AND FASTER - just like a real car's parking sensor. When very close (under 10 cm) the sound becomes constant and the blue LED turns on. Objects farther than 100 cm make no sound. The code never waits (uses millis): measuring, beeping and commands run together. The B1 button MUTES / UNMUTES the sound (the LED and serial keep working)."
+      },
+      "wiring": "Ultrasonik sensör SABİT pinler kullanır: TRIG = IO12, ECHO = IO13 - pin seçmenize gerek yok. / The ultrasonic sensor uses FIXED pins: TRIG = IO12, ECHO = IO13 - no pin to choose.",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "sessiz",
+          "en": "mute",
+          "description": {
+            "tr": "sesi kapat/aç",
+            "en": "sound off/on"
+          }
+        },
+        {
+          "tr": "oku",
+          "en": "read",
+          "description": {
+            "tr": "şu anki mesafeyi yaz",
+            "en": "print the current distance"
+          }
+        },
+        {
+          "tr": "yakin 10",
+          "en": "near 10",
+          "description": {
+            "tr": "sürekli ses mesafesi (cm, 3-50)",
+            "en": "constant-tone distance (cm, 3-50)"
+          }
+        },
+        {
+          "tr": "uzak 100",
+          "en": "far 100",
+          "description": {
+            "tr": "bip başlama mesafesi (cm, 20-300)",
+            "en": "distance where beeping starts (cm, 20-300)"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_Pedestrian_Crossing_Example",
+      "path": "main/3-Projects/MINIBOT_Pedestrian_Crossing_Example/MINIBOT_Pedestrian_Crossing_Example.ino",
+      "category": "Projects",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": true,
+      "title": {
+        "tr": "GERÇEK PROJE - Butonlu Yaya Geçidi",
+        "en": "A REAL PROJECT - Push-Button Pedestrian Crossing"
+      },
+      "summary": {
+        "tr": "OTOMATİK modda arabalar için ışık normalde YEŞİLDİR. Yaya B1 butonuna basınca istek kaydedilir (mavi LED yanar = \"BEKLEYİNİZ\"). Arabalar en az 8 saniye yeşil görmeden ışık değişmez; sonra SARI (2 sn) -> KIRMIZI (6 sn, yayalar geçer) -> tekrar YEŞİL. Kırmızı sırasında buzzer \"tık tık\" yapar, son 2 saniyede hızlanır tıpkı görme engelliler için sesli yaya geçitleri gibi. Kod hiç beklemeden (millis ile) çalışır, buton her an cevap verir. B1 bu projede YAYA butonudur. MANUEL mod (ışıkları elle seçmek) seri porttan \"manuel\" yazarak açılır, \"oto\" ile otomatiğe dönülür.",
+        "en": "In AUTO mode the car light is normally GREEN. When a pedestrian presses B1 the request is stored (blue LED on = \"PLEASE WAIT\"). The light never changes before cars have had at least 8 seconds of green; then YELLOW (2 s) -> RED (6 s, pedestrians cross) -> GREEN again. During red the buzzer ticks, faster in the last 2 seconds - just like talking crossings for visually impaired people. The code never blocks (uses millis), so the button always responds. In this project B1 is the PEDESTRIAN button. MANUAL mode (choosing the lights by hand) is turned on by typing \"manual\", and \"auto\" goes back to automatic."
+      },
+      "wiring": "Trafik ışığı modülü SABİT pinler kullanır (KIRMIZI = IO13, SARI = IO5, YEŞİL = IO4) - soket seçmenize gerek yok. / The traffic light module uses FIXED pins (RED = IO13, YELLOW = IO5, GREEN = IO4) - no socket to choose. NOT: Kartın buzzer'ı da IO5'i (SARI ışık) kullanır. Bu yüzden tıklar sadece KIRMIZI evrede (sarı sönükken) çalınır; her tıkta sarı ışık hafifçe parlarsa bu normaldir. / NOTE: The board's buzzer also uses IO5 (YELLOW light). So ticks are only played in the RED phase (while yellow is off); if the yellow light glows faintly on each tick, that is normal.",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "bas",
+          "en": "press",
+          "description": {
+            "tr": "yaya butonuna basmak gibi (geçiş isteği)",
+            "en": "same as pressing the pedestrian button"
+          }
+        },
+        {
+          "tr": "oto",
+          "en": "auto",
+          "description": {
+            "tr": "otomatik yaya geçidi",
+            "en": "automatic pedestrian crossing"
+          }
+        },
+        {
+          "tr": "manuel",
+          "en": "manual",
+          "description": {
+            "tr": "manuel mod (ışıklar seri porttan)",
+            "en": "manual mode (lights from serial)"
+          }
+        },
+        {
+          "tr": "kirmizi",
+          "en": "red, sari / yellow, yesil / green, kapat / off",
+          "description": {
+            "tr": "ışık seç (manuele geçer)",
+            "en": "choose a light (switches to manual)"
+          }
+        },
+        {
+          "tr": "durum",
+          "en": "status",
+          "description": {
+            "tr": "şu anki evre",
+            "en": "current phase"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_Reflex_Game_Example",
+      "path": "main/3-Projects/MINIBOT_Reflex_Game_Example/MINIBOT_Reflex_Game_Example.ino",
+      "category": "Projects",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "GERÇEK PROJE - Refleks Oyunu (\"Ne kadar hızlısın?\")",
+        "en": "A REAL PROJECT - Reflex Game (\"How fast are you?\")"
+      },
+      "summary": {
+        "tr": "B1 butonuna basıp oyunu başlatın. Kart 2-5 saniye arası RASTGELE bir süre bekler, sonra mavi LED yanar ve buzzer \"bip\" der - o anda B1'e olabildiğince hızlı basın! Tepki süreniz milisaniye (ms) olarak ölçülür, seri porta bir not ile yazılır ve en iyi skorunuz saklanır. LED yanmadan basarsanız \"ERKEN BASTIN!\" olur - hile yok :) B1 bu projede OYUN butonudur.",
+        "en": "Press B1 to start. The board waits a RANDOM time between 2 and 5 seconds, then the blue LED lights up and the buzzer beeps - press B1 as fast as you can! Your reaction time is measured in milliseconds (ms), printed with a grade, and your best score is kept. Press before the LED lights up and it is a \"FALSE START!\" - no cheating :) In this project B1 is the GAME button."
+      },
+      "wiring": "Ek modül GEREKMEZ - sadece kartın B1 butonu, mavi LED'i ve buzzer'ı kullanılır. / NO extra module needed - only the board's B1 button, blue LED and buzzer are used.",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "basla",
+          "en": "start",
+          "description": {
+            "tr": "yeni tur başlat (B1 gibi)",
+            "en": "start a new round (like B1)"
+          }
+        },
+        {
+          "tr": "rekor",
+          "en": "best",
+          "description": {
+            "tr": "en iyi skoru yaz",
+            "en": "print the best score"
+          }
+        },
+        {
+          "tr": "sifirla",
+          "en": "reset",
+          "description": {
+            "tr": "en iyi skoru sil",
+            "en": "clear the best score"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_Temperature_Color_Indicator_Example",
+      "path": "main/3-Projects/MINIBOT_Temperature_Color_Indicator_Example/MINIBOT_Temperature_Color_Indicator_Example.ino",
+      "category": "Projects",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "dht",
+        "neopixel"
+      ],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": true,
+      "title": {
+        "tr": "GERÇEK PROJE - Renkli Sıcaklık Göstergesi",
+        "en": "A REAL PROJECT - Color Temperature Indicator"
+      },
+      "summary": {
+        "tr": "OTOMATİK modda DHT sensörü odanın sıcaklığını ölçer, akıllı LED'ler de sıcaklığı RENK ile gösterir: soğuksa MAVİ, rahatsa YEŞİL, sıcaksa KIRMIZI - aradaki değerlerde renkler yavaşça birbirine karışır. Sıcaklık uyarı sınırını (32 °C) geçerse buzzer her saniye uyarı sesi verir. Her 2 saniyede bir seri porta sıcaklık, nem ve renk raporu yazılır. Sensörü elinizle ısıtıp renkleri izleyin! B1 butonuna basınca MANUEL (deneme) moda geçer: sensör yerine sıcaklığı siz verirsiniz (\"sicaklik 30\" gibi) ve rengin nasıl değiştiğini görürsünüz. B1'e tekrar basınca gerçek sensöre döner.",
+        "en": "In AUTO mode the DHT sensor measures the room temperature and the smart LEDs show it as a COLOR: BLUE when cold, GREEN when comfortable, RED when hot - in between, the colors blend smoothly. If the temperature passes the warning limit (32 °C) the buzzer beeps every second. Every 2 seconds a temperature, humidity and color report is printed. Warm the sensor with your hand and watch the colors change! Press B1 to switch to MANUAL (test) mode: instead of the sensor you give the temperature (like \"temp 30\") and see how the color changes. Press B1 again to go back to the real sensor."
+      },
+      "wiring": "DHT sensörünü IO12'ye, akıllı LED modülünü Port A'ya (IO14) takın. / Plug the DHT sensor into IO12 and the smart LED module into Port A (IO14).",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "oto",
+          "en": "auto",
+          "description": {
+            "tr": "otomatik mod (gerçek sensör)",
+            "en": "auto mode (real sensor)"
+          }
+        },
+        {
+          "tr": "manuel",
+          "en": "manual",
+          "description": {
+            "tr": "manuel (deneme) mod",
+            "en": "manual (test) mode"
+          }
+        },
+        {
+          "tr": "sicaklik 30",
+          "en": "temp 30",
+          "description": {
+            "tr": "30 °C varmış gibi göster (manuele geçer)",
+            "en": "show as if it were 30 °C (switches to manual)"
+          }
+        },
+        {
+          "tr": "parlaklik 50",
+          "en": "brightness 50",
+          "description": {
+            "tr": "LED parlaklığı (%0-100)",
+            "en": "LED brightness (0-100 %)"
+          }
+        },
+        {
+          "tr": "sessiz",
+          "en": "mute",
+          "description": {
+            "tr": "uyarı sesini kapat/aç",
+            "en": "warning beep off/on"
+          }
+        },
+        {
+          "tr": "oku",
+          "en": "read",
+          "description": {
+            "tr": "sensörü hemen oku",
+            "en": "read the sensor now"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_Touchless_Trash_Can_Example",
+      "path": "main/3-Projects/MINIBOT_Touchless_Trash_Can_Example/MINIBOT_Touchless_Trash_Can_Example.ino",
+      "category": "Projects",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "servo"
+      ],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": true,
+      "title": {
+        "tr": "GERÇEK PROJE - Temassız Çöp Kutusu",
+        "en": "A REAL PROJECT - Touchless Trash Can"
+      },
+      "summary": {
+        "tr": "OTOMATİK modda elinizi (ya da çöpü) kapağın üzerine 15 cm'den yakına getirince ultrasonik sensör bunu görür ve servo motor kapağı KENDİLİĞİNDEN açar. Eliniz gittikten 3 saniye sonra kapak yavaşça kapanır. Kapak açıkken mavi LED yanar. Hiç dokunmadan - mikrop taşımadan - çöp atmanın yolu! Servo yumuşak hareket eder ama kod hiç beklemez (millis); sensör her an okunur. B1 butonuna basınca MANUEL moda geçer: sensör kapağı açmaz, kapağı seri porttan siz açıp kapatırsınız (kapak açısını ayarlamak için de kullanışlı). B1'e tekrar basınca otomatik moda döner.",
+        "en": "In AUTO mode, bring your hand (or the trash) closer than 15 cm above the lid: the ultrasonic sensor sees it and the servo motor opens the lid BY ITSELF. 3 seconds after your hand is gone the lid closes slowly. The blue LED is on while the lid is open. A way to throw trash away without touching anything - no germs! The servo moves smoothly but the code never blocks (millis); the sensor keeps reading. Press B1 to switch to MANUAL mode: the sensor does not open the lid, you open and close it from the serial port (handy for adjusting the lid angle too). Press B1 again to go back to auto mode."
+      },
+      "wiring": "Ultrasonik sensör sabit pinler kullanır (TRIG = IO12, ECHO = IO13) - soket seçmenize gerek yok. Servo motoru Port B'ye (IO4) takın (ultrasonik pinleriyle çakışmaz). Servo kolunu kapağa bağlayın. / The ultrasonic sensor uses fixed pins (TRIG = IO12, ECHO = IO13) - no socket to choose. Plug the servo motor into Port B (IO4) (it does not clash with the ultrasonic pins). Attach the servo arm to the lid.",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "oto",
+          "en": "auto",
+          "description": {
+            "tr": "otomatik mod (sensörle)",
+            "en": "auto mode (with the sensor)"
+          }
+        },
+        {
+          "tr": "manuel",
+          "en": "manual",
+          "description": {
+            "tr": "manuel mod",
+            "en": "manual mode"
+          }
+        },
+        {
+          "tr": "ac",
+          "en": "open",
+          "description": {
+            "tr": "kapağı aç (manuel moda geçer)",
+            "en": "open the lid (switches to manual)"
+          }
+        },
+        {
+          "tr": "kapat",
+          "en": "close",
+          "description": {
+            "tr": "kapağı kapat (manuel moda geçer)",
+            "en": "close the lid (switches to manual)"
+          }
+        },
+        {
+          "tr": "aci 60",
+          "en": "angle 60",
+          "description": {
+            "tr": "servoyu 60°'ye götür (manuel moda geçer)",
+            "en": "move the servo to 60° (switches to manual)"
+          }
+        },
+        {
+          "tr": "oku",
+          "en": "read",
+          "description": {
+            "tr": "mesafeyi yaz",
+            "en": "print the distance"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_Vibration_Shock_Alarm_Example",
+      "path": "main/3-Projects/MINIBOT_Vibration_Shock_Alarm_Example/MINIBOT_Vibration_Shock_Alarm_Example.ino",
+      "category": "Projects",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "GERÇEK PROJE - Titreşim/Darbe Alarmı (\"Kutuma Dokunma!\")",
+        "en": "A REAL PROJECT - Vibration/Shock Alarm (\"Don't touch my box!\")"
+      },
+      "summary": {
+        "tr": "Titreşim sensörü üzerine konduğu cisimde sarsıntı/darbe hissedince buzzer kısa bir alarm patlaması (4 sn) çalar ve mavi LED yanıp söner - bisiklet kilidi ya da kutu hırsızlık alarmı gibi düşünün. B1 butonu sistemi KURAR / ÇÖZER. Çözmek çalan alarmı da susturur.",
+        "en": "When the vibration sensor feels a shake/impact on the object it sits on, the buzzer sounds a short alarm burst (4 s) and the blue LED flashes - think of a bike lock or an anti-theft box alarm. The B1 button ARMS / DISARMS the system. Disarming also silences the alarm."
+      },
+      "wiring": "Titreşim sensörünü IO12'ye bağlı sokete takın (başka bir soket kullanırsanız VIBRATION_PIN değerini değiştirin). / Plug the vibration sensor into the IO12 socket (change VIBRATION_PIN if you use another socket). Desteklenen pinler / Supported pins: IO4 - IO12 - IO13 - IO14 (IO5 = buzzer)",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "kur",
+          "en": "arm",
+          "description": {
+            "tr": "sistemi kur",
+            "en": "arm the system"
+          }
+        },
+        {
+          "tr": "coz",
+          "en": "disarm",
+          "description": {
+            "tr": "sistemi çöz (alarmı da susturur)",
+            "en": "disarm the system (also silences the alarm)"
+          }
+        },
+        {
+          "tr": "sure 4",
+          "en": "time 4",
+          "description": {
+            "tr": "her darbede alarm süresi (saniye, 1-30)",
+            "en": "alarm length per impact (seconds, 1-30)"
+          }
+        },
+        {
+          "tr": "durum",
+          "en": "status",
+          "description": {
+            "tr": "sistem durumu ve darbe sayısı",
+            "en": "system state and impact count"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_DHT_Module_Basic_Example",
+      "path": "modules/MINIBOT_DHT_Module_Basic_Example/MINIBOT_DHT_Module_Basic_Example.ino",
+      "category": "Modules",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "dht"
+      ],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "DHT11 SICAKLIK VE NEM MODÜLÜ",
+        "en": "DHT11 TEMPERATURE AND HUMIDITY MODULE"
+      },
+      "summary": {
+        "tr": "Her 2 saniyede bir sıcaklığı (°C), nemi (%) ve hissedilen sıcaklığı ölçüp seri porta yazar. DHT11 yavaş bir sensördür; 2 saniyeden sık okunmaz. Okuma yapılırken mavi LED kısa bir an yanar.",
+        "en": "Every 2 seconds it measures the temperature (°C), humidity (%) and the \"feels like\" temperature and prints them. The DHT11 is a slow sensor; it can't be read more often than every 2 seconds. The blue LED flashes briefly on each reading."
+      },
+      "wiring": "DHT11 modülünü IO12'ye bağlı sokete takın. Desteklenen pinler / Supported pins: IO4 - IO5 - IO12 - IO13 - IO14 NOT / NOTE: \"#define USE_DHT\" satırı #include'dan ÖNCE yazılmalıdır. The \"#define USE_DHT\" line must come BEFORE the #include.",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "oku",
+          "en": "read",
+          "description": {
+            "tr": "hemen bir ölçüm yap",
+            "en": "take a reading now"
+          }
+        },
+        {
+          "tr": "aralik 5",
+          "en": "interval 5",
+          "description": {
+            "tr": "ölçüm aralığı (saniye, 2-60)",
+            "en": "reading interval (seconds, 2-60)"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_IR_Reader_Module_Decimal_Code_Basic_Example",
+      "path": "modules/MINIBOT_IR_Reader_Module_Decimal_Code_Basic_Example/MINIBOT_IR_Reader_Module_Decimal_Code_Basic_Example.ino",
+      "category": "Modules",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "ir"
+      ],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "IR ALICI MODÜLÜ - Kumanda tuş kodlarını ONDALIK (decimal) sayı olarak okuma",
+        "en": "IR RECEIVER MODULE - Reading remote control key codes as DECIMAL numbers"
+      },
+      "summary": {
+        "tr": "Kızılötesi (IR) kumandayı modüle doğrultup bir tuşa basın: tuşun kodu seri porta sayı olarak yazılır ve mavi LED kısa bir an yanar. Bu kodları kendi projelerinizde \"if (kod == ...)\" ile kullanabilirsiniz. 32 bit mod tam kodu verir; 8 bit mod sadece son 8 biti (0-255, daha kısa ve çoğu kumandada tuşları ayırmaya yeter).",
+        "en": "Point an infrared (IR) remote at the module and press a key: the key's code is printed as a number and the blue LED flashes. You can use these codes in your own projects with \"if (code == ...)\". 32-bit mode gives the full code; 8-bit mode only the last 8 bits (0-255, shorter and enough to tell keys apart on most remotes)."
+      },
+      "wiring": "IR alıcı modülünü IO12'ye bağlı sokete takın. Desteklenen pinler / Supported pins: IO4 - IO5 - IO12 - IO13 - IO14 NOT / NOTE: \"#define USE_IR\" satırı #include'dan ÖNCE yazılmalıdır. The \"#define USE_IR\" line must come BEFORE the #include.",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "bit 8",
+          "en": "bit 32",
+          "description": {
+            "tr": "kod uzunluğu (8 bit ya da 32 bit)",
+            "en": "code length (8-bit or 32-bit)"
+          }
+        },
+        {
+          "tr": "son",
+          "en": "last",
+          "description": {
+            "tr": "son okunan kodu tekrar yaz",
+            "en": "print the last code again"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_IR_Reader_Module_HEX_Code_Basic_Example",
+      "path": "modules/MINIBOT_IR_Reader_Module_HEX_Code_Basic_Example/MINIBOT_IR_Reader_Module_HEX_Code_Basic_Example.ino",
+      "category": "Modules",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "ir"
+      ],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "IR ALICI MODÜLÜ - Kumanda tuş kodlarını HEX (onaltılık) olarak okuma",
+        "en": "IR RECEIVER MODULE - Reading remote control key codes as HEX"
+      },
+      "summary": {
+        "tr": "Kızılötesi (IR) kumandayı modüle doğrultup bir tuşa basın: tuşun kodu seri porta \"0xff30cf\" gibi HEX olarak yazılır ve mavi LED kısa bir an yanar. Kumanda kodları genelde HEX yazılır; internetteki tablolarla karşılaştırabilirsiniz.",
+        "en": "Point an infrared (IR) remote at the module and press a key: the key's code is printed in HEX like \"0xff30cf\" and the blue LED flashes. Remote codes are usually written in HEX; you can compare them with tables on the internet."
+      },
+      "wiring": "IR alıcı modülünü IO12'ye bağlı sokete takın. Desteklenen pinler / Supported pins: IO4 - IO5 - IO12 - IO13 - IO14 NOT / NOTE: \"#define USE_IR\" satırı #include'dan ÖNCE yazılmalıdır. The \"#define USE_IR\" line must come BEFORE the #include.",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "son",
+          "en": "last",
+          "description": {
+            "tr": "son okunan kodu tekrar yaz",
+            "en": "print the last code again"
+          }
+        },
+        {
+          "tr": "sayac",
+          "en": "count",
+          "description": {
+            "tr": "kaç kod okunduğunu yaz",
+            "en": "print how many codes were read"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_Magnetic_Module_Basic_Example",
+      "path": "modules/MINIBOT_Magnetic_Module_Basic_Example/MINIBOT_Magnetic_Module_Basic_Example.ino",
+      "category": "Modules",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "MANYETİK SENSÖR MODÜLÜ (reed / Hall)",
+        "en": "MAGNETIC SENSOR MODULE (reed / Hall)"
+      },
+      "summary": {
+        "tr": "Sensöre bir mıknatıs yaklaşınca \"Mıknatıs VAR\", uzaklaşınca \"Mıknatıs YOK\" yazar. Mesaj sadece durum DEĞİŞİNCE yazılır (seri port dolmaz). Mıknatıs varken mavi LED yanar; her değişimde kısa bir bip duyulur.",
+        "en": "When a magnet comes near the sensor it prints \"Magnet PRESENT\", when it moves away \"Magnet ABSENT\". Messages are printed only when the state CHANGES (no serial flood). The blue LED is on while the magnet is present; each change beeps."
+      },
+      "wiring": "Manyetik sensör modülünü IO12'ye bağlı sokete takın. Desteklenen pinler / Supported pins: IO4 - IO5 - IO12 - IO13 - IO14 (IO5 kartın buzzer'ını da sürer / IO5 also drives the board's buzzer.)",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "oku",
+          "en": "read",
+          "description": {
+            "tr": "şu anki durumu yaz",
+            "en": "print the current state"
+          }
+        },
+        {
+          "tr": "sayac",
+          "en": "count",
+          "description": {
+            "tr": "mıknatıs kaç kez algılandı",
+            "en": "how many times the magnet was detected"
+          }
+        },
+        {
+          "tr": "ses",
+          "en": "sound",
+          "description": {
+            "tr": "bip sesini aç/kapat",
+            "en": "beep on/off"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_PIR_Module_Basic_Example",
+      "path": "modules/MINIBOT_PIR_Module_Basic_Example/MINIBOT_PIR_Module_Basic_Example.ino",
+      "category": "Modules",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "PIR HAREKET SENSÖRÜ MODÜLÜ",
+        "en": "PIR MOTION SENSOR MODULE"
+      },
+      "summary": {
+        "tr": "PIR sensörü önünde bir canlı hareket edince \"Hareket algılandı!\", hareket bitince \"Hareket yok\" yazar. Mesaj sadece durum DEĞİŞİNCE yazılır. Hareket varken mavi LED yanar. İpucu: PIR açıldıktan sonra ~30-60 sn ortama alışır; o sırada yanlış algılama olabilir. Hareket bittikten sonra da çıkış birkaç saniye \"var\" kalabilir.",
+        "en": "When something alive moves in front of the PIR sensor it prints \"Motion detected!\", and \"No motion\" when it stops. Messages are printed only when the state CHANGES. The blue LED is on while there is motion. Tip: after power-up the PIR needs ~30-60 s to settle; false triggers may happen then. Its output can also stay \"on\" for a few seconds after motion stops."
+      },
+      "wiring": "PIR modülünü IO12'ye bağlı sokete takın. Desteklenen pinler / Supported pins: IO4 - IO5 - IO12 - IO13 - IO14 (IO5 kartın buzzer'ını da sürer / IO5 also drives the board's buzzer.)",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "oku",
+          "en": "read",
+          "description": {
+            "tr": "şu anki durumu yaz",
+            "en": "print the current state"
+          }
+        },
+        {
+          "tr": "sayac",
+          "en": "count",
+          "description": {
+            "tr": "kaç kez hareket algılandı",
+            "en": "how many times motion was detected"
+          }
+        },
+        {
+          "tr": "ses",
+          "en": "sound",
+          "description": {
+            "tr": "harekette bip sesini aç/kapat",
+            "en": "beep on motion on/off"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_Relay_Module_Basic_Example",
+      "path": "modules/MINIBOT_Relay_Module_Basic_Example/MINIBOT_Relay_Module_Basic_Example.ino",
+      "category": "Modules",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": true,
+      "title": {
+        "tr": "RÖLE MODÜLÜ - Otomatik demo + Manuel kontrol",
+        "en": "RELAY MODULE - Automatic demo + Manual control"
+      },
+      "summary": {
+        "tr": "Açılışta OTOMATİK mod çalışır: röle 3 saniyede bir açılıp kapanır (tık sesi duyarsınız). B1 butonuna basınca MANUEL moda geçer: röle olduğu gibi kalır, seri porttan \"ac\" / \"kapat\" yazarak siz kontrol edersiniz. B1'e tekrar basınca otomatiğe döner. Mavi LED rölenin durumunu gösterir (yanıyor = röle açık).",
+        "en": "At startup AUTO mode runs: the relay switches on/off every 3 seconds (you hear it click). Press B1 to switch to MANUAL mode: the relay keeps its state and you control it from the serial port with \"on\" / \"off\". Press B1 again to go back to auto. The blue LED shows the relay state (on = relay on)."
+      },
+      "wiring": "Röle modülünü IO12'ye bağlı sokete takın. Desteklenen pinler / Supported pins: IO4 - IO5 - IO12 - IO13 - IO14 (IO5 kartın buzzer'ını da sürer / IO5 also drives the board's buzzer.)",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "oto",
+          "en": "auto",
+          "description": {
+            "tr": "otomatik mod",
+            "en": "auto mode"
+          }
+        },
+        {
+          "tr": "manuel",
+          "en": "manual",
+          "description": {
+            "tr": "manuel mod",
+            "en": "manual mode"
+          }
+        },
+        {
+          "tr": "ac",
+          "en": "on",
+          "description": {
+            "tr": "röleyi aç (manuel moda geçer)",
+            "en": "relay on (switches to manual)"
+          }
+        },
+        {
+          "tr": "kapat",
+          "en": "off",
+          "description": {
+            "tr": "röleyi kapat (manuel moda geçer)",
+            "en": "relay off (switches to manual)"
+          }
+        },
+        {
+          "tr": "degistir",
+          "en": "toggle",
+          "description": {
+            "tr": "röleyi tersine çevir (manuel moda geçer)",
+            "en": "invert the relay (switches to manual)"
+          }
+        },
+        {
+          "tr": "sure 5",
+          "en": "period 5",
+          "description": {
+            "tr": "otomatik moddaki açma/kapama süresi (saniye, 1-60)",
+            "en": "on/off time in auto mode (seconds, 1-60)"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_Servo_Motor_Module_Basic_Example",
+      "path": "modules/MINIBOT_Servo_Motor_Module_Basic_Example/MINIBOT_Servo_Motor_Module_Basic_Example.ino",
+      "category": "Modules",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "servo"
+      ],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": true,
+      "title": {
+        "tr": "SERVO MOTOR MODÜLÜ - Otomatik demo + Manuel kontrol",
+        "en": "SERVO MOTOR MODULE - Automatic demo + Manual control"
+      },
+      "summary": {
+        "tr": "Açılışta OTOMATİK mod çalışır: servo 0° ile 180° arasında yavaşça gidip gelir. B1 butonuna basınca MANUEL moda geçer: servo durur, açıyı seri porttan \"aci 90\" gibi komutlarla siz verirsiniz. B1'e tekrar basınca otomatik moda döner. (MINIBOT'ta potansiyometre yoktur; manuel kontrol seri port üzerindendir.)",
+        "en": "At startup AUTO mode runs: the servo sweeps slowly between 0° and 180°. Press B1 to switch to MANUAL mode: the servo stops and you give the angle from the serial port with commands like \"angle 90\". Press B1 again to go back to auto mode. (MINIBOT has no potentiometer; manual control is via serial.)"
+      },
+      "wiring": "Servoyu IO12'ye bağlı sokete takın. Desteklenen pinler / Supported pins: IO4 - IO5 - IO12 - IO13 - IO14 (IO5 kartın buzzer'ını da sürer / IO5 also drives the board's buzzer.) NOT / NOTE: \"#define USE_SERVO\" satırı #include'dan ÖNCE yazılmalıdır. The \"#define USE_SERVO\" line must come BEFORE the #include.",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "oto",
+          "en": "auto",
+          "description": {
+            "tr": "otomatik mod",
+            "en": "auto mode"
+          }
+        },
+        {
+          "tr": "manuel",
+          "en": "manual",
+          "description": {
+            "tr": "manuel mod",
+            "en": "manual mode"
+          }
+        },
+        {
+          "tr": "aci 90",
+          "en": "angle 90",
+          "description": {
+            "tr": "servoyu 90°'ye götür (manuel moda geçer)",
+            "en": "move the servo to 90° (switches to manual)"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_Smart_Led_Module_Basic_Example",
+      "path": "modules/MINIBOT_Smart_Led_Module_Basic_Example/MINIBOT_Smart_Led_Module_Basic_Example.ino",
+      "category": "Modules",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "neopixel"
+      ],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": true,
+      "title": {
+        "tr": "AKILLI LED (NeoPixel) MODÜLÜ - Otomatik efektler + Manuel renk kontrolü",
+        "en": "SMART LED (NeoPixel) MODULE - Automatic effects + Manual color control"
+      },
+      "summary": {
+        "tr": "Açılışta OTOMATİK mod çalışır: 3 LED'lik modülde sırayla 4 efekt oynar (her biri ~5 sn): gökkuşağı, gökkuşağı takip, kırmızı takip, mavi silme. B1 butonuna basınca MANUEL moda geçer: efekt durur, rengi seri porttan siz seçersiniz. B1'e tekrar basınca otomatik moda döner.",
+        "en": "At startup AUTO mode runs: 4 effects play in turn on the 3-LED module (~5 s each): rainbow, rainbow chase, red chase, blue wipe. Press B1 to switch to MANUAL mode: the effect stops and you choose the color from the serial port. Press B1 again to go back to auto mode."
+      },
+      "wiring": "Akıllı LED modülünü IO12'ye bağlı sokete takın. Desteklenen pinler / Supported pins: IO4 - IO5 - IO12 - IO13 - IO14 (IO5 kartın buzzer'ını da sürer / IO5 also drives the board's buzzer.) NOT / NOTE: Kütüphanenin hazır efekt fonksiyonları (ör. moduleSmartLEDRainbowEffect) bitene kadar programı bekletir. Bu örnek efektleri küçük adımlarla (millis) kendisi çizer; böylece B1 ve seri komutlar her an çalışır. The library's ready-made effect functions (e.g. moduleSmartLEDRainbowEffect) block until they finish. This example draws the effects itself in small steps (millis), so B1 and serial commands always respond.",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "oto",
+          "en": "auto",
+          "description": {
+            "tr": "otomatik mod",
+            "en": "auto mode"
+          }
+        },
+        {
+          "tr": "manuel",
+          "en": "manual",
+          "description": {
+            "tr": "manuel mod",
+            "en": "manual mode"
+          }
+        },
+        {
+          "tr": "renk 255 0 0",
+          "en": "color 255 0 0",
+          "description": {
+            "tr": "istediğiniz renk (R G B, 0-255)",
+            "en": "any color (R G B, 0-255)"
+          }
+        },
+        {
+          "tr": "parlaklik 50",
+          "en": "brightness 50",
+          "description": {
+            "tr": "parlaklık (%0-100)",
+            "en": "brightness (0-100 %)"
+          }
+        },
+        {
+          "tr": "ac",
+          "en": "on",
+          "description": {
+            "tr": "son rengi yak",
+            "en": "light the last color"
+          }
+        },
+        {
+          "tr": "kapat",
+          "en": "off",
+          "description": {
+            "tr": "LED'leri söndür",
+            "en": "turn the LEDs off"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_Smart_Led_Module_Basic_Example2",
+      "path": "modules/MINIBOT_Smart_Led_Module_Basic_Example2/MINIBOT_Smart_Led_Module_Basic_Example2.ino",
+      "category": "Modules",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [
+        "neopixel"
+      ],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": true,
+      "title": {
+        "tr": "AKILLI LED MODÜLÜ 2 - LED'leri TEK TEK kontrol etmek",
+        "en": "SMART LED MODULE 2 - Controlling the LEDs ONE BY ONE"
+      },
+      "summary": {
+        "tr": "Modülde 3 LED vardır: 1, 2 ve 3 numara. moduleSmartLEDWrite(sıra, R, G, B) ile her birine ayrı renk verilebilir (sıra 0'dan başlar: 1. LED = 0). Açılışta OTOMATİK mod çalışır: 1. LED kırmızı, 2. LED yeşil, 3. LED mavi yanar (saniyede bir LED), sonra hepsi söner ve baştan başlar. B1 butonuna basınca MANUEL moda geçer: LED'ler olduğu gibi kalır, her LED'in rengini seri porttan siz verirsiniz. B1'e tekrar basınca otomatiğe döner.",
+        "en": "The module has 3 LEDs: number 1, 2 and 3. moduleSmartLEDWrite(index, R, G, B) gives each one its own color (index starts at 0: LED 1 = 0). At startup AUTO mode runs: LED 1 red, LED 2 green, LED 3 blue light up (one LED per second), then all turn off and it starts again. Press B1 to switch to MANUAL mode: the LEDs keep their colors and you set each LED's color from the serial port. Press B1 again to go back to auto."
+      },
+      "wiring": "Akıllı LED modülünü IO12'ye bağlı sokete takın. Desteklenen pinler / Supported pins: IO4 - IO5 - IO12 - IO13 - IO14 (IO5 kartın buzzer'ını da sürer / IO5 also drives the board's buzzer.)",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "oto",
+          "en": "auto",
+          "description": {
+            "tr": "otomatik mod",
+            "en": "auto mode"
+          }
+        },
+        {
+          "tr": "manuel",
+          "en": "manual",
+          "description": {
+            "tr": "manuel mod",
+            "en": "manual mode"
+          }
+        },
+        {
+          "tr": "led 2 mavi",
+          "en": "led 2 blue",
+          "description": {
+            "tr": "2. LED'e renk adıyla renk ver",
+            "en": "give LED 2 a color by name"
+          }
+        },
+        {
+          "tr": "renk 0 0 255",
+          "en": "color 0 0 255",
+          "description": {
+            "tr": "üç LED'i birden aynı renge boya",
+            "en": "paint all three LEDs the same color"
+          }
+        },
+        {
+          "tr": "kirmizi, yesil, mavi, beyaz",
+          "en": "red, green, blue, white",
+          "description": {
+            "tr": "üçünü o renge boya",
+            "en": "all off"
+          }
+        },
+        {
+          "tr": "kapat",
+          "en": "off",
+          "description": {
+            "tr": "hepsini söndür",
+            "en": "switch language (Turkish <-> English)"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_Traffic_Light_Module_Basic_Example",
+      "path": "modules/MINIBOT_Traffic_Light_Module_Basic_Example/MINIBOT_Traffic_Light_Module_Basic_Example.ino",
+      "category": "Modules",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": true,
+      "title": {
+        "tr": "TRAFİK IŞIĞI MODÜLÜ - Otomatik demo + Manuel kontrol",
+        "en": "TRAFFIC LIGHT MODULE - Automatic demo + Manual control"
+      },
+      "summary": {
+        "tr": "Açılışta OTOMATİK mod çalışır: KIRMIZI (3 sn) -> SARI (1 sn) -> YEŞİL (3 sn) > SARI (1 sn) -> tekrar KIRMIZI ... gerçek bir kavşak gibi. B1 butonuna basınca MANUEL moda geçer: ışık olduğu gibi kalır, hangi ışığın yanacağını seri porttan siz seçersiniz. B1'e tekrar basınca otomatiğe döner. Mod değişince mavi LED kısa bir an yanıp söner (bu modülde buzzer kullanılmaz, çünkü buzzer ile SARI ışık aynı pini (IO5) paylaşır).",
+        "en": "At startup AUTO mode runs: RED (3 s) -> YELLOW (1 s) -> GREEN (3 s) > YELLOW (1 s) -> RED again ... like a real junction. Press B1 to switch to MANUAL mode: the lights keep their state and you choose which light is on from the serial port. Press B1 again to go back to auto. On a mode change the blue LED flashes briefly (the buzzer is not used here, because the buzzer and the YELLOW light share the same pin (IO5))."
+      },
+      "wiring": "Trafik ışığı modülü SABİT pinler kullanır: KIRMIZI = IO13, SARI = IO5, YEŞİL = IO4. Soket seçmenize gerek yok. The traffic light module uses FIXED pins: RED = IO13, YELLOW = IO5, GREEN = IO4. No socket to choose.",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "oto",
+          "en": "auto",
+          "description": {
+            "tr": "otomatik mod",
+            "en": "auto mode"
+          }
+        },
+        {
+          "tr": "manuel",
+          "en": "manual",
+          "description": {
+            "tr": "manuel mod",
+            "en": "manual mode"
+          }
+        },
+        {
+          "tr": "kirmizi",
+          "en": "red",
+          "description": {
+            "tr": "sadece kırmızı (manuel moda geçer)",
+            "en": "red only (switches to manual)"
+          }
+        },
+        {
+          "tr": "sari",
+          "en": "yellow",
+          "description": {
+            "tr": "sadece sarı",
+            "en": "yellow only"
+          }
+        },
+        {
+          "tr": "yesil",
+          "en": "green",
+          "description": {
+            "tr": "sadece yeşil",
+            "en": "green only"
+          }
+        },
+        {
+          "tr": "hepsi",
+          "en": "all",
+          "description": {
+            "tr": "üçü birden (lamba testi)",
+            "en": "all three (lamp test)"
+          }
+        },
+        {
+          "tr": "kapat",
+          "en": "off",
+          "description": {
+            "tr": "hepsini söndür",
+            "en": "all off"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_Ultrasonic_Distance_Module_Basic_Example",
+      "path": "modules/MINIBOT_Ultrasonic_Distance_Module_Basic_Example/MINIBOT_Ultrasonic_Distance_Module_Basic_Example.ino",
+      "category": "Modules",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "ULTRASONİK MESAFE SENSÖRÜ MODÜLÜ (HC-SR04)",
+        "en": "ULTRASONIC DISTANCE SENSOR MODULE (HC-SR04)"
+      },
+      "summary": {
+        "tr": "Sensörün önündeki cisme olan mesafeyi santimetre (cm) olarak ölçer ve her saniye seri porta yazar. 0 cm = yansıma yok (cisim çok uzakta, 4 m'den fazla, ya da sensör bağlı değil). Cisim 20 cm'den yakınsa mavi LED yanar.",
+        "en": "Measures the distance to the object in front of the sensor in centimeters (cm) and prints it every second. 0 cm = no echo (object too far, more than 4 m, or the sensor is not connected). The blue LED is on when the object is closer than 20 cm."
+      },
+      "wiring": "Ultrasonik sensör SABİT pinler kullanır: TRIG = IO12, ECHO = IO13. Modülü bu pinlerin olduğu sokete takın; pin seçmenize gerek yok. The ultrasonic sensor uses FIXED pins: TRIG = IO12, ECHO = IO13. Plug the module into the socket with these pins; no pin to choose.",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "oku",
+          "en": "read",
+          "description": {
+            "tr": "hemen bir ölçüm yap",
+            "en": "take a reading now"
+          }
+        },
+        {
+          "tr": "hizli",
+          "en": "fast",
+          "description": {
+            "tr": "hızlı ölçüm (200 ms) aç/kapat",
+            "en": "fast readings (200 ms) on/off"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MINIBOT_Vibration_Module_Basic_Example",
+      "path": "modules/MINIBOT_Vibration_Module_Basic_Example/MINIBOT_Vibration_Module_Basic_Example.ino",
+      "category": "Modules",
+      "board": "MINIBOT",
+      "chip": "ESP8266",
+      "robot": null,
+      "modules": [],
+      "needsCredentials": false,
+      "needsPeerMac": false,
+      "autoManual": false,
+      "title": {
+        "tr": "TİTREŞİM SENSÖRÜ MODÜLÜ",
+        "en": "VIBRATION SENSOR MODULE"
+      },
+      "summary": {
+        "tr": "Sensöre vurunca ya da onu sallayınca \"Titreşim algılandı!\" yazar, mavi LED yanar ve kısa bir bip duyulur. Bir darbe sensörü birkaç kez tetikleyebildiği için mesajlar en fazla 300 ms'de bir yazılır; toplam sayı da gösterilir.",
+        "en": "Tap or shake the sensor: it prints \"Vibration detected!\", the blue LED lights up and a short beep sounds. One knock can trigger the sensor several times, so messages are printed at most every 300 ms; the total count is shown too."
+      },
+      "wiring": "Titreşim sensörü modülünü IO12'ye bağlı sokete takın. Desteklenen pinler / Supported pins: IO4 - IO5 - IO12 - IO13 - IO14 (IO5 kartın buzzer'ını da sürer / IO5 also drives the board's buzzer.)",
+      "serialBaud": 115200,
+      "commands": [
+        {
+          "tr": "yardim",
+          "en": "help",
+          "description": {
+            "tr": "komut listesi",
+            "en": "command list"
+          }
+        },
+        {
+          "tr": "sayac",
+          "en": "count",
+          "description": {
+            "tr": "toplam titreşim sayısı",
+            "en": "total vibration count"
+          }
+        },
+        {
+          "tr": "sifirla",
+          "en": "reset",
+          "description": {
+            "tr": "sayacı sıfırla",
+            "en": "reset the counter"
+          }
+        },
+        {
+          "tr": "ses",
+          "en": "sound",
+          "description": {
+            "tr": "bip sesini aç/kapat",
+            "en": "beep on/off"
+          }
+        },
+        {
+          "tr": "dil",
+          "en": "lang",
+          "description": {
+            "tr": "dili değiştir (Türkçe <-> English)",
+            "en": "switch language (Turkish <-> English)"
+          }
+        }
+      ]
+    }
+  ]
+}
