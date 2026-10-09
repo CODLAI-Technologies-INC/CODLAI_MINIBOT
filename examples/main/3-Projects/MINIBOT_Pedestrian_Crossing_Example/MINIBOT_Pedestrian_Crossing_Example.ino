@@ -60,6 +60,12 @@ const uint32_t kRedMs = 6000;           // Yaya geçiş süresi / pedestrian cro
 const uint32_t kFastTickLastMs = 2000;  // Son 2 sn hızlı tık / fast ticks in the last 2 s
 
 enum Phase { CAR_GREEN, CAR_YELLOW, CAR_RED };
+
+// Enum parametreli fonksiyonlarin prototipleri: Arduino IDE otomatik
+// prototipleri enum tanimindan ONCE yazdigi icin "declared void" hatasi
+// veriyordu. / Prototypes of functions taking an enum: the Arduino IDE
+// writes its auto-prototypes BEFORE the enum ("declared void" error).
+void enterPhase(Phase p);
 Phase phase = CAR_GREEN;
 uint32_t phaseStartMs = 0;
 bool requested = false;                 // Yaya isteği var mı / pedestrian request waiting?
